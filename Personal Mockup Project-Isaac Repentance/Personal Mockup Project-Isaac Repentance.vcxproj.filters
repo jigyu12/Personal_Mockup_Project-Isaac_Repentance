@@ -21,11 +21,11 @@
     <Filter Include="소스 파일\01. Managers">
       <UniqueIdentifier>{413bfd4e-e784-4a47-927a-bba024d8c71e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Headers\pch">
+      <UniqueIdentifier>{29bf340d-1f61-4efc-a62c-611cae15d1af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Framework\pch.cpp">
-      <Filter>소스 파일\99. Headers</Filter>
-    </ClCompile>
     <ClCompile Include="Framework\GameMain.cpp">
       <Filter>소스 파일\00. MainGame\Main</Filter>
     </ClCompile>
@@ -38,11 +38,11 @@
     <ClCompile Include="Framework\InputManager.cpp">
       <Filter>소스 파일\01. Managers</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\pch.cpp">
+      <Filter>소스 파일\99. Headers\pch</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Framework\pch.h">
-      <Filter>소스 파일\99. Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\Game.h">
       <Filter>소스 파일\00. MainGame</Filter>
     </ClInclude>
@@ -60,6 +60,9 @@
     </ClInclude>
     <ClInclude Include="Framework\Types.h">
       <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\pch.h">
+      <Filter>소스 파일\99. Headers\pch</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
