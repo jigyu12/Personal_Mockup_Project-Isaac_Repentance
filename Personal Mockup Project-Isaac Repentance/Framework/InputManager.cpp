@@ -13,7 +13,6 @@ void InputManager::Init()
 
 void InputManager::Update(float dt)
 {
-
 }
 
 void InputManager::UpdateEvent(const sf::Event& ev)
