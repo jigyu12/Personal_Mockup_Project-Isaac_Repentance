@@ -6,6 +6,7 @@ void Game::Init(const std::wstring& windowName)
     std::wcout.imbue(std::locale("korean"));
 
     GAME_MGR.Init(windowName);
+    INPUT_MGR.Init();
 }
 
 void Game::TotalUpdate()
@@ -14,19 +15,18 @@ void Game::TotalUpdate()
     {
         GAME_MGR.CalculateTime();
 
-        // GET_SINGLETON(InputManager).Clear();
+        INPUT_MGR.Clear();
 
         sf::Event event;
         while (GAME_MGR.GetWindow().pollEvent(event))
         {
-            // InputManager로 대체 요망 (esc 동작 이상하면 updateEvent만 호출하면 될 듯)
-            if (event.type == sf::Event::KeyPressed)
-            {
-                if(event.key.code == sf::Keyboard::Escape)
-                    GAME_MGR.GetWindow().close();
-            }
-            // 여기까지
+            INPUT_MGR.UpdateEvent(event);
         }
+
+        // 나중에 조건에 맞게 수정 요망 (종료 임시 코드)
+        if(INPUT_MGR.GetKeyDown(sf::Keyboard::Space))
+            GAME_MGR.GetWindow().close();
+        // 나중에 조건에 맞게 수정 요망 (종료 임시 코드)
 
         GAME_MGR.GetWindow().clear();
         
@@ -39,7 +39,7 @@ void Game::TotalUpdate()
 
 void Game::Update(float dt)
 {
-    
+    INPUT_MGR.Update(dt);
 }
 
 void Game::Draw(sf::RenderWindow& window)
@@ -49,5 +49,5 @@ void Game::Draw(sf::RenderWindow& window)
 
 void Game::Release()
 {
-    
+
 }

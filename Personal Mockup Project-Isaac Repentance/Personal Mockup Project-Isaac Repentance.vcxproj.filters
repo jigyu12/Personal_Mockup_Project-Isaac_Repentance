@@ -35,6 +35,9 @@
     <ClCompile Include="Framework\GameManager.cpp">
       <Filter>소스 파일\01. Managers</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\InputManager.cpp">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\pch.h">
@@ -48,6 +51,15 @@
     </ClInclude>
     <ClInclude Include="Framework\GameManager.h">
       <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\InputManager.h">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Enums.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Types.h">
+      <Filter>소스 파일\99. Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

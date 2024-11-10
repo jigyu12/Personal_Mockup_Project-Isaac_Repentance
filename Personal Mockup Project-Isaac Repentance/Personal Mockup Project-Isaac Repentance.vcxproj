@@ -22,15 +22,19 @@
     <ClCompile Include="Framework\Game.cpp" />
     <ClCompile Include="Framework\GameMain.cpp" />
     <ClCompile Include="Framework\GameManager.cpp" />
+    <ClCompile Include="Framework\InputManager.cpp" />
     <ClCompile Include="Framework\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Defines.h" />
+    <ClInclude Include="Framework\Enums.h" />
     <ClInclude Include="Framework\Game.h" />
     <ClInclude Include="Framework\GameManager.h" />
+    <ClInclude Include="Framework\InputManager.h" />
     <ClInclude Include="Framework\pch.h" />
+    <ClInclude Include="Framework\Types.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
