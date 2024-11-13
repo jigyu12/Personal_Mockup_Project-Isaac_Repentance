@@ -1,5 +1,7 @@
 #pragma once
 
+using json = nlohmann::json;
+
 #define DECLARE_SINGLETON(classname)                    \
 public:													\
 	static classname& GetInstance()						\

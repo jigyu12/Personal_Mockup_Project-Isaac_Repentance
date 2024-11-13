@@ -4,8 +4,10 @@ enum class Axis
 {
 	None = -1,
 
-	Horizontal,
-	Vertical,
+	HorizontalMove,
+	VerticalMove,
+	HorizontalAttack,
+	VerticalAttack,
 
 	AxisCount
 };

@@ -1,0 +1,62 @@
+[
+    {
+        "axis": "HorizontalMove",
+        "keyMap": [
+            [
+                3,
+                true
+            ],
+            [
+                0,
+                false
+            ]
+        ],
+        "sensi": 10.0,
+        "value": 0.0
+    },
+    {
+        "axis": "VerticalMove",
+        "keyMap": [
+            [
+                22,
+                true
+            ],
+            [
+                18,
+                false
+            ]
+        ],
+        "sensi": 10.0,
+        "value": 0.0
+    },
+    {
+        "axis": "HorizontalAttack",
+        "keyMap": [
+            [
+                72,
+                true
+            ],
+            [
+                71,
+                false
+            ]
+        ],
+        "sensi": 10.0,
+        "value": 0.0
+    },
+    {
+        "axis": "VerticalAttack",
+        "keyMap": [
+            [
+                73,
+                true
+            ],
+            [
+                74,
+                false
+            ]
+        ],
+        "sensi": 10.0,
+        "value": 0.0
+    }
+]
