@@ -21,3 +21,4 @@
 #include "FileManager.h"
 #include "GameManager.h"
 #include "InputManager.h"
+#include "ResourceManager.h"

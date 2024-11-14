@@ -79,5 +79,8 @@
     <ClInclude Include="Framework\FileManager.h">
       <Filter>소스 파일\01. Managers</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\ResourceManager.h">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

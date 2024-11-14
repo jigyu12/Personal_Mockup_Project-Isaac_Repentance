@@ -4,7 +4,7 @@ void Game::Init(const std::wstring& windowName)
 {
     //std::wcin.imbue(std::locale("korean"));
     //std::wcout.imbue(std::locale("korean"));
-
+    
     GAME_MGR.Init(windowName);
     INPUT_MGR.Init();
 }
@@ -22,7 +22,7 @@ void Game::TotalUpdate()
         {
             INPUT_MGR.UpdateEvent(event);
         }
-
+        
         // 나중에 조건에 맞게 수정 요망 (종료 임시 코드)
         if(INPUT_MGR.GetKeyDown(sf::Keyboard::Space))
             GAME_MGR.GetWindow().close();

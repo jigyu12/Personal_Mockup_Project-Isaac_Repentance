@@ -42,5 +42,5 @@ private:
 
 	std::unordered_map<Axis, AxisInfo> axisInfoMap;
 
-	std::wstring axisFilePath = L"Jsons/axis_info.json";
+	std::wstring axisFilePath = L"Json/axis_info.json";
 };

@@ -40,6 +40,7 @@
     <ClInclude Include="Framework\pch.h" />
     <ClInclude Include="Framework\Types.h" />
     <ClInclude Include="Framework\Utils.h" />
+    <ClInclude Include="Framework\ResourceManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
