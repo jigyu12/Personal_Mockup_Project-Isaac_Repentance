@@ -14,10 +14,10 @@ public:
 
 	void Release() {}
 
-	std::shared_ptr<T> Get(const std::wstring& id, bool notUnloadByUnloadAll = false)
+	std::shared_ptr<T> Get(const std::wstring& id, bool notUnLoadByUnLoadAll = false)
 	{
 		auto it = resources.find(id);
-		if (it == resources.end() && !Load(id, notUnloadByUnloadAll))
+		if (it == resources.end() && !Load(id, notUnLoadByUnLoadAll))
 		{
 			return None;
 		}
@@ -52,7 +52,7 @@ public:
 	}
 
 private:		
-	bool Load(const std::wstring& id, bool notUnloadByUnloadAll)
+	bool Load(const std::wstring& id, bool notUnLoadByUnLoadAll)
 	{
 		if (resources.find(id) != resources.end())
 			return false;
@@ -65,7 +65,7 @@ private:
 		bool success = resource->loadFromFile(s_id);
 		if (success)
 		{
-			resources.insert({ id, std::make_pair(resource, notUnloadByUnloadAll) });
+			resources.insert({ id, std::make_pair(resource, notUnLoadByUnLoadAll) });
 		}
 
 		return success;
