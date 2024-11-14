@@ -18,5 +18,6 @@
 #include "Types.h"
 #include "Utils.h"
 #include "Game.h"
+#include "FileManager.h"
 #include "GameManager.h"
 #include "InputManager.h"

@@ -20,3 +20,4 @@ private:												\
 #define GAME (Game::GetInstance())
 #define GAME_MGR (GameManager::GetInstance())
 #define INPUT_MGR (InputManager::GetInstance())
+#define FILE_MGR (FileManager::GetInstance())

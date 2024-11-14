@@ -12,29 +12,25 @@ void InputManager::Init()
 
 	axisInfoMap.clear();
 
-
-	std::ifstream inFile("Jsons/axis_info.json");
-	if (!inFile)
+	
+	std::shared_ptr<json> loadAxisInfosPtr = FILE_MGR.LoadByJson(axisFilePath);
+	if (loadAxisInfosPtr)
 	{
-		std::wcerr << "axis_info.json Load Failed" << std::endl;
-	}
-	else
-	{
-		json jIn;
-		inFile >> jIn;
-
-		std::vector<AxisInfo> loadAxisInfos = jIn.get<std::vector<AxisInfo>>();
+		std::vector<AxisInfo> loadAxisInfos = loadAxisInfosPtr->get<std::vector<AxisInfo>>();
 		for (const auto& axisInfo : loadAxisInfos)
 		{
 			axisInfoMap.insert({ axisInfo.axis, axisInfo });
 		}
 	}
-	
-	inFile.close();
+	else
+	{
+		std::wcerr << L"loadAxisInfosPtr was nullptr" << std::endl;
+	}
 }
 
 void InputManager::Update(float dt)
 {
+	// GetAxis에 사용할 value를 계산
 	for (auto& pair : axisInfoMap)
 	{
 		auto& axisInfo = pair.second;
@@ -45,10 +41,10 @@ void InputManager::Update(float dt)
 			dir = axisInfo.value > 0.f ? -1.f : 1.f;
 		}
 
-		axisInfo.value += dir * axisInfo.sensi * dt;
+		axisInfo.value += dir * axisInfo.sensitivity * dt;
 		axisInfo.value = Utils::Clamp(axisInfo.value, -1.f, 1.f);
 
-		float stopThreshold = std::abs(dir * axisInfo.sensi * dt);
+		float stopThreshold = std::abs(dir * axisInfo.sensitivity * dt);
 		if (raw == 0.f && std::abs(axisInfo.value) < stopThreshold)
 		{
 			axisInfo.value = 0.f;
@@ -172,30 +168,28 @@ void InputManager::Clear()
 	upMouseButtons.clear();
 }
 
-void to_json(json& j, const AxisInfo& info)
-{
-	j = json{
-		{"axis", info.axis},
-		{"keyMap", info.keyMap},
-		{"sensi", info.sensi},
-		{"value", info.value}
-	};
-}
 
-void from_json(const json& j, AxisInfo& info)
-{
-	j.at("axis").get_to(info.axis);
-	j.at("keyMap").get_to(info.keyMap);
-	j.at("sensi").get_to(info.sensi);
-	j.at("value").get_to(info.value);
-}
+// Save AxisInfo by FileManager(Json) 
 
-void to_json(json& j, const sf::Keyboard::Key& key)
-{
-	j = static_cast<int>(key);
-}
-
-void from_json(const json& j, sf::Keyboard::Key& key)
-{
-	key = static_cast<sf::Keyboard::Key>(j.get<int>());
-}
+//AxisInfo infoHoriaontalMove;
+//infoHoriaontalMove.axis = Axis::HorizontalMove;
+//infoHoriaontalMove.AddKey(sf::Keyboard::D, true);
+//infoHoriaontalMove.AddKey(sf::Keyboard::A, false);
+//
+//AxisInfo infoVerticalMove;
+//infoVerticalMove.axis = Axis::VerticalMove;
+//infoVerticalMove.AddKey(sf::Keyboard::W, true);
+//infoVerticalMove.AddKey(sf::Keyboard::S, false);
+//
+//AxisInfo infoHoriaontalAttack;
+//infoHoriaontalAttack.axis = Axis::HorizontalAttack;
+//infoHoriaontalAttack.AddKey(sf::Keyboard::Right, true);
+//infoHoriaontalAttack.AddKey(sf::Keyboard::Left, false);
+//
+//AxisInfo infoVerticalAttack;
+//infoVerticalAttack.axis = Axis::VerticalAttack;
+//infoVerticalAttack.AddKey(sf::Keyboard::Up, true);
+//infoVerticalAttack.AddKey(sf::Keyboard::Down, false);
+//
+//json jArray = { infoHoriaontalMove, infoVerticalMove, infoHoriaontalAttack, infoVerticalAttack };
+//FILE_MGR.SaveByJson(jArray, axisFilePath);

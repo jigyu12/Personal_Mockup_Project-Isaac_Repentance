@@ -11,7 +11,7 @@
                 false
             ]
         ],
-        "sensi": 10.0,
+        "sensitivity": 10.0,
         "value": 0.0
     },
     {
@@ -26,7 +26,7 @@
                 false
             ]
         ],
-        "sensi": 10.0,
+        "sensitivity": 10.0,
         "value": 0.0
     },
     {
@@ -41,7 +41,7 @@
                 false
             ]
         ],
-        "sensi": 10.0,
+        "sensitivity": 10.0,
         "value": 0.0
     },
     {
@@ -56,7 +56,7 @@
                 false
             ]
         ],
-        "sensi": 10.0,
+        "sensitivity": 10.0,
         "value": 0.0
     }
 ]

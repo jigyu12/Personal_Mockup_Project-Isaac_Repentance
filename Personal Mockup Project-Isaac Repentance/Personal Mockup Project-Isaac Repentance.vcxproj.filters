@@ -44,6 +44,9 @@
     <ClCompile Include="Framework\Utils.cpp">
       <Filter>소스 파일\99. Headers</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\FileManager.cpp">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Game.h">
@@ -72,6 +75,9 @@
     </ClInclude>
     <ClInclude Include="Framework\Utils.h">
       <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\FileManager.h">
+      <Filter>소스 파일\01. Managers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

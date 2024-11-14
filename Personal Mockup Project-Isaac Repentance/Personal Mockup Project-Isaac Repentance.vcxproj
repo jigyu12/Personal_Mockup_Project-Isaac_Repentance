@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\FileManager.cpp" />
     <ClCompile Include="Framework\Game.cpp" />
     <ClCompile Include="Framework\GameMain.cpp" />
     <ClCompile Include="Framework\GameManager.cpp" />
@@ -29,6 +30,7 @@
     <ClCompile Include="Framework\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Framework\FileManager.h" />
     <ClInclude Include="Framework\Defines.h" />
     <ClInclude Include="Framework\Enums.h" />
     <ClInclude Include="Framework\Game.h" />

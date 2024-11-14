@@ -41,19 +41,6 @@ private:
 	std::list<sf::Mouse::Button> upMouseButtons;
 
 	std::unordered_map<Axis, AxisInfo> axisInfoMap;
+
+	std::wstring axisFilePath = L"Jsons/axis_info.json";
 };
-
-NLOHMANN_JSON_SERIALIZE_ENUM(Axis, {
-	{Axis::HorizontalMove, "HorizontalMove"},
-	{Axis::VerticalMove, "VerticalMove"},
-	{Axis::HorizontalAttack , "HorizontalAttack"},
-	{Axis::VerticalAttack, "VerticalAttack"},
-	})
-
-void to_json(json& j, const AxisInfo& info);
-
-void from_json(const json& j, AxisInfo& info);
-
-void to_json(json& j, const sf::Keyboard::Key& key);
-
-void from_json(const json& j, sf::Keyboard::Key& key);
