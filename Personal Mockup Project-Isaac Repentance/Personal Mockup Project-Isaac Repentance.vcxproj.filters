@@ -24,6 +24,30 @@
     <Filter Include="소스 파일\99. Headers\pch">
       <UniqueIdentifier>{29bf340d-1f61-4efc-a62c-611cae15d1af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03. Scenes">
+      <UniqueIdentifier>{6547c2e7-f1fd-45c9-a525-0633a93f7c25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Scenes\Scene">
+      <UniqueIdentifier>{845bc1f9-d128-46ac-b86b-42d7519eebaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. GameObjects">
+      <UniqueIdentifier>{3a06500a-a185-4200-ba96-0f44e85f0ade}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. GameObjects\GameObject">
+      <UniqueIdentifier>{ce86303f-19df-488e-bfd6-8dc31bdffa92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Headers\HitBoxs">
+      <UniqueIdentifier>{2257143a-39e9-4d94-9470-fb952b3aff3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Headers\HitBoxs\HitBox">
+      <UniqueIdentifier>{7293de91-ce1b-4c90-ae17-cc853a31f455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. GameObjects\GameObject\SpriteGameObject">
+      <UniqueIdentifier>{20620c7e-a744-4e58-9ac9-78215ca464db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. GameObjects\GameObject\TextGameObject">
+      <UniqueIdentifier>{5d8188e7-fe3d-406f-9954-32a11d4af3e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameMain.cpp">
@@ -46,6 +70,30 @@
     </ClCompile>
     <ClCompile Include="Framework\FileManager.cpp">
       <Filter>소스 파일\01. Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Scene.cpp">
+      <Filter>소스 파일\03. Scenes\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SceneManager.cpp">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\GameObject.cpp">
+      <Filter>소스 파일\02. GameObjects\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Variables.cpp">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\HitBoxCircle.cpp">
+      <Filter>소스 파일\99. Headers\HitBoxs</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\HitBoxRect.cpp">
+      <Filter>소스 파일\99. Headers\HitBoxs</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SpriteGameObject.cpp">
+      <Filter>소스 파일\02. GameObjects\GameObject\SpriteGameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\TextGameObject.cpp">
+      <Filter>소스 파일\02. GameObjects\GameObject\TextGameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +129,36 @@
     </ClInclude>
     <ClInclude Include="Framework\ResourceManager.h">
       <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Scene.h">
+      <Filter>소스 파일\03. Scenes\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SceneManager.h">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\GameObject.h">
+      <Filter>소스 파일\02. GameObjects\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Variables.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\HitBoxCircle.h">
+      <Filter>소스 파일\99. Headers\HitBoxs</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\HitBoxRect.h">
+      <Filter>소스 파일\99. Headers\HitBoxs</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\HitBox.h">
+      <Filter>소스 파일\99. Headers\HitBoxs\HitBox</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SpriteGameObject.h">
+      <Filter>소스 파일\02. GameObjects\GameObject\SpriteGameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\TextGameObject.h">
+      <Filter>소스 파일\02. GameObjects\GameObject\TextGameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\rapidcsv.h">
+      <Filter>소스 파일\99. Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

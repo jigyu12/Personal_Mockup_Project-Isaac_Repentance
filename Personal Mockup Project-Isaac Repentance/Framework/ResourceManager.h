@@ -8,7 +8,7 @@ class ResourceManager
 public:													
 	void Init() {}
 
-	void Update(float dt) {}
+	void Update(float deltaTime) {}
 
 	void Draw(sf::RenderWindow& window) {}
 

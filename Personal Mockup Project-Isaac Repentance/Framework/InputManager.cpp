@@ -12,7 +12,7 @@ void InputManager::Init()
 
 	axisInfoMap.clear();
 
-	
+
 	std::shared_ptr<json> loadAxisInfosPtr = FILE_MGR.LoadByJson(axisFilePath);
 	if (loadAxisInfosPtr)
 	{
@@ -28,7 +28,7 @@ void InputManager::Init()
 	}
 }
 
-void InputManager::Update(float dt)
+void InputManager::Update(float deltaTime)
 {
 	// GetAxis에 사용할 value를 계산
 	for (auto& pair : axisInfoMap)
@@ -41,10 +41,10 @@ void InputManager::Update(float dt)
 			dir = axisInfo.value > 0.f ? -1.f : 1.f;
 		}
 
-		axisInfo.value += dir * axisInfo.sensitivity * dt;
+		axisInfo.value += dir * axisInfo.sensitivity * deltaTime;
 		axisInfo.value = Utils::Clamp(axisInfo.value, -1.f, 1.f);
 
-		float stopThreshold = std::abs(dir * axisInfo.sensitivity * dt);
+		float stopThreshold = std::abs(dir * axisInfo.sensitivity * deltaTime);
 		if (raw == 0.f && std::abs(axisInfo.value) < stopThreshold)
 		{
 			axisInfo.value = 0.f;
@@ -169,7 +169,7 @@ void InputManager::Clear()
 }
 
 
-// Save AxisInfo by FileManager(Json) 
+// Example of Save Isaac AxisInfo by FileManager(Json)
 
 //AxisInfo infoHoriaontalMove;
 //infoHoriaontalMove.axis = Axis::HorizontalMove;

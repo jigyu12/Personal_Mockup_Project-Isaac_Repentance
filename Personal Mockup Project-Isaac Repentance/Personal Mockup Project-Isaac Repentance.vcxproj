@@ -23,11 +23,19 @@
     <ClCompile Include="Framework\Game.cpp" />
     <ClCompile Include="Framework\GameMain.cpp" />
     <ClCompile Include="Framework\GameManager.cpp" />
+    <ClCompile Include="Framework\HitBoxRect.cpp" />
     <ClCompile Include="Framework\InputManager.cpp" />
     <ClCompile Include="Framework\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Framework\Utils.cpp" />
+    <ClCompile Include="Framework\Scene.cpp" />
+    <ClCompile Include="Framework\SceneManager.cpp" />
+    <ClCompile Include="Framework\GameObject.cpp" />
+    <ClCompile Include="Framework\Variables.cpp" />
+    <ClCompile Include="Framework\HitBoxCircle.cpp" />
+    <ClCompile Include="Framework\SpriteGameObject.cpp" />
+    <ClCompile Include="Framework\TextGameObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\FileManager.h" />
@@ -38,9 +46,19 @@
     <ClInclude Include="Framework\InputManager.h" />
     <ClInclude Include="Framework\json.hpp" />
     <ClInclude Include="Framework\pch.h" />
+    <ClInclude Include="Framework\rapidcsv.h" />
     <ClInclude Include="Framework\Types.h" />
     <ClInclude Include="Framework\Utils.h" />
     <ClInclude Include="Framework\ResourceManager.h" />
+    <ClInclude Include="Framework\Scene.h" />
+    <ClInclude Include="Framework\SceneManager.h" />
+    <ClInclude Include="Framework\GameObject.h" />
+    <ClInclude Include="Framework\Variables.h" />
+    <ClInclude Include="Framework\HitBoxRect.h" />
+    <ClInclude Include="Framework\HitBoxCircle.h" />
+    <ClInclude Include="Framework\HitBox.h" />
+    <ClInclude Include="Framework\SpriteGameObject.h" />
+    <ClInclude Include="Framework\TextGameObject.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

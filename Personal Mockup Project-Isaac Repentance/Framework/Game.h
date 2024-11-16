@@ -12,7 +12,9 @@ public:
 	void Release();
 
 private:
-	void Update(float dt);
+	void Update(float deltaTime);
 
 	void Draw(sf::RenderWindow& window);
+
+	void SwitchDebugMod();
 };

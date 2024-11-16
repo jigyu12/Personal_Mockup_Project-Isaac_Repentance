@@ -4,7 +4,7 @@ void Game::Init(const std::wstring& windowName)
 {
     //std::wcin.imbue(std::locale("korean"));
     //std::wcout.imbue(std::locale("korean"));
-    
+
     GAME_MGR.Init(windowName);
     INPUT_MGR.Init();
 }
@@ -28,6 +28,11 @@ void Game::TotalUpdate()
             GAME_MGR.GetWindow().close();
         // 나중에 조건에 맞게 수정 요망 (종료 임시 코드)
 
+        if (INPUT_MGR.GetKeyDown(sf::Keyboard::F12))
+        {
+            SwitchDebugMod();
+        }
+
         GAME_MGR.GetWindow().clear();
         
         Update(GAME_MGR.GetDeltaTime());
@@ -37,9 +42,9 @@ void Game::TotalUpdate()
     }
 }
 
-void Game::Update(float dt)
+void Game::Update(float deltaTime)
 {
-    INPUT_MGR.Update(dt);
+    INPUT_MGR.Update(deltaTime);
 }
 
 void Game::Draw(sf::RenderWindow& window)
@@ -50,4 +55,9 @@ void Game::Draw(sf::RenderWindow& window)
 void Game::Release()
 {
 
+}
+
+void Game::SwitchDebugMod()
+{
+    Variables::isDrawHitBox = !Variables::isDrawHitBox;
 }

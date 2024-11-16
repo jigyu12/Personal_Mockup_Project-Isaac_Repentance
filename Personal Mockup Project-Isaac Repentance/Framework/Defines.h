@@ -1,6 +1,7 @@
 #pragma once
 
 using json = nlohmann::json;
+using csv = rapidcsv::Document;
 
 #define DECLARE_SINGLETON(classname)                    \
 public:													\
@@ -21,6 +22,7 @@ private:												\
 #define GAME_MGR (GameManager::GetInstance())
 #define INPUT_MGR (InputManager::GetInstance())
 #define FILE_MGR (FileManager::GetInstance())
+#define SCENE_MGR (SceneManager::GetInstance())
 
 #define RES_TEXTURE_MGR (ResourceManager<sf::Texture>::GetInstance())
 #define RES_FONT_MGR (ResourceManager<sf::Font>::GetInstance())
