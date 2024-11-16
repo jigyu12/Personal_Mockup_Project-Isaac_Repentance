@@ -24,7 +24,7 @@ public:
 	void SetScale(const sf::Vector2f& scale);
 	void SetTextSize(const int size);
 	void SetTextColor(const sf::Color& color);
-	void SetTextStringById(const std::wstring& id);
+	void SetTextStringById(const std::wstring& id, const int index);
 
 protected:
 	std::wstring fontPath;

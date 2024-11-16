@@ -4,7 +4,7 @@ void Game::Init(const std::wstring& windowName)
 {
     //std::wcin.imbue(std::locale("korean"));
     //std::wcout.imbue(std::locale("korean"));
-
+    
     GAME_MGR.Init(windowName);
     INPUT_MGR.Init();
 }

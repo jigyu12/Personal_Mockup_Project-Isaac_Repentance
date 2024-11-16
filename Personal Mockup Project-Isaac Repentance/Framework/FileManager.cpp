@@ -42,7 +42,7 @@ std::shared_ptr<json> FileManager::LoadByJson(const std::wstring& filePath) cons
 	return jsonFile;
 }
 
-void FileManager::SaveByCsv(const std::vector<std::vector<std::string>>& rows, const std::wstring& filePath)
+void FileManager::SaveByCsv(const std::vector<std::vector<std::wstring>>& rows, const std::wstring& filePath)
 {
 	try 
 	{
@@ -51,7 +51,12 @@ void FileManager::SaveByCsv(const std::vector<std::vector<std::string>>& rows, c
 		int rowIndex = -1;
 		for (auto& row : rows)
 		{
-			csvFile.InsertRow(rowIndex, row);
+			std::vector<std::string> s_row(row.size());
+			for (int i = 0; i < row.size(); i++)
+			{
+				s_row[i] = Utils::converter.to_bytes(row[i]);
+			}
+			csvFile.InsertRow(rowIndex, s_row);
 			rowIndex++;
 		}
 
@@ -67,9 +72,9 @@ void FileManager::SaveByCsv(const std::vector<std::vector<std::string>>& rows, c
 	std::wcout << filePath + L" Save Success" << std::endl;
 }
 
-std::shared_ptr<std::unordered_map<std::wstring, std::wstring>> FileManager::LoadByCsv(const std::wstring& filePath) const
+std::shared_ptr<std::unordered_map<std::wstring, std::vector<std::wstring>>> FileManager::LoadByCsv(const std::wstring& filePath) const
 {
-	std::shared_ptr<std::unordered_map<std::wstring, std::wstring>> csvMap = std::make_shared<std::unordered_map<std::wstring, std::wstring>>();
+	std::shared_ptr<std::unordered_map<std::wstring, std::vector<std::wstring>>> csvMap = std::make_shared<std::unordered_map<std::wstring, std::vector<std::wstring>>>();
 
 	try
 	{
@@ -79,7 +84,12 @@ std::shared_ptr<std::unordered_map<std::wstring, std::wstring>> FileManager::Loa
 			std::vector<std::string> row = csvFile.GetRow<std::string>(i);
 
 			std::wstring key = Utils::converter.from_bytes(row[0]);
-			std::wstring value = Utils::converter.from_bytes(row[1]);
+
+			std::vector<std::wstring> value;
+			for (int j = 1; j < row.size(); j++)
+			{
+				value.push_back(Utils::converter.from_bytes(row[j]));
+			}
 
 			csvMap->insert({ key, value });
 		}

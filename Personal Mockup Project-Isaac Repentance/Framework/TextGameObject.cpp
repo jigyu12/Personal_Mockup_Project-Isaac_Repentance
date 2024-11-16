@@ -61,18 +61,18 @@ void TextGameObject::SetTextColor(const sf::Color& color)
 	text.setFillColor(color);
 }
 
-void TextGameObject::SetTextStringById(const std::wstring& id)
+void TextGameObject::SetTextStringById(const std::wstring& id, const int index)
 {
 	auto csvMap = FILE_MGR.LoadByCsv(stringPath);
-	if ((*csvMap).find(id) == (*csvMap).end())
+	if ((*csvMap).find(id) == (*csvMap).end() || index < 0 || index >= (*csvMap)[stringId].size())
 	{
-		std::wcerr << L"Cannot set text string by id: invaild id" << std::endl;
+		std::wcerr << L"Cannot set text string by id: invaild id or index" << std::endl;
 		return;
 	}
 	else
 	{
 		stringId = id;
-		text.setString((*csvMap)[stringId]);
+		text.setString((*csvMap)[stringId][index]);
 		SetOrigin(originPreset);
 	}
 }
