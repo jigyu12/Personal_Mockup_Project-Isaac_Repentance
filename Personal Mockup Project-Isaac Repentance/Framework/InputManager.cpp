@@ -26,7 +26,7 @@ void InputManager::Init()
 		}
 		catch (const std::exception& ex)
 		{
-			std::wcerr << L"Invaild loadAxisInfo data" << std::endl;
+			std::wcerr << L"Invaild loadAxisInfo data: "<< ex.what() << std::endl;
 
 			return;
 		}

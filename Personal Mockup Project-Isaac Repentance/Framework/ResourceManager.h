@@ -19,7 +19,7 @@ public:
 		auto it = resources.find(id);
 		if (it == resources.end() && !Load(id, notUnLoadByUnLoadAll))
 		{
-			return None;
+			return nullptr;
 		}
 		return resources[id].first;
 	}
@@ -59,22 +59,16 @@ private:
 
 		std::shared_ptr<T> resource = std::make_shared<T>();
 
-		std::string s_id;
-		s_id.assign(id.begin(), id.end());
+		std::string s_id = Utils::converter.to_bytes(id);
 
-		bool success = resource->loadFromFile(s_id);
-		if (success)
-		{
+		bool isSuccess = resource->loadFromFile(s_id);
+		if (isSuccess)
 			resources.insert({ id, std::make_pair(resource, notUnLoadByUnLoadAll) });
-		}
+		else
+			std::wcerr << L"Failed to load resource" << std::endl;
 
-		return success;
+		return isSuccess;
 	}
-
-	static std::shared_ptr<T> None;
 
 	std::unordered_map<std::wstring, std::pair<std::shared_ptr<T>, bool>> resources;
 };
-
-template<typename T>
-std::shared_ptr<T> ResourceManager<T>::None = std::make_shared<T>();

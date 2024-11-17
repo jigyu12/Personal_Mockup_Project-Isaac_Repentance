@@ -22,6 +22,7 @@ public:
 	void SetOrigin(const sf::Vector2f& newOrigin);
 	void SetRotation(float angle);
 	void SetScale(const sf::Vector2f& scale);
+	void SetFont(const std::wstring& fontPath, bool notUnLoadByUnLoadAll);
 	void SetTextSize(const int size);
 	void SetTextColor(const sf::Color& color);
 	void SetTextStringById(const std::wstring& id, const int index);
@@ -32,4 +33,5 @@ protected:
 	std::wstring stringId;
 
 	sf::Text text;
+	std::shared_ptr<sf::Font> fontPtr;
 };

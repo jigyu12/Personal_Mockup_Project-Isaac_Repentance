@@ -23,11 +23,13 @@ public:
 	void SetOrigin(const sf::Vector2f& newOrigin);
 	void SetRotation(float angle);
 	void SetScale(const sf::Vector2f& scale);
+	void SetBodyTexture(const std::wstring& texturePath, bool notUnLoadByUnLoadAll);
 
 protected:
 	std::wstring texturePath;
 
 	sf::Sprite body;
+	std::shared_ptr<sf::Texture> bodyTexturePtr;
 
 	std::shared_ptr<HitBox> hitbox;
 };

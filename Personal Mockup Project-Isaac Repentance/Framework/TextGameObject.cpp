@@ -52,6 +52,21 @@ void TextGameObject::SetScale(const sf::Vector2f& scale)
 	text.setScale(scale);
 }
 
+void TextGameObject::SetFont(const std::wstring& fontPath, bool notUnLoadByUnLoadAll)
+{
+	auto fontPtr = RES_FONT_MGR.Get(fontPath, notUnLoadByUnLoadAll);
+	if (!fontPtr)
+	{
+		std::wcerr << L"fontPtr was nullptr" << std::endl;
+	}
+	else
+	{
+		this->fontPath = fontPath;
+		this->fontPtr = fontPtr;
+		text.setFont(*(this->fontPtr));
+	}
+}
+
 void TextGameObject::SetTextSize(const int size)
 {
 	text.setCharacterSize(size);

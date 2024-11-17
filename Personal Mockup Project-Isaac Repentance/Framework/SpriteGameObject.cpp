@@ -51,3 +51,18 @@ void SpriteGameObject::SetScale(const sf::Vector2f& scale)
 	this->scale = scale;
 	body.setScale(scale);
 }
+
+void SpriteGameObject::SetBodyTexture(const std::wstring& texturePath, bool notUnLoadByUnLoadAll)
+{
+	auto texturePtr = RES_TEXTURE_MGR.Get(texturePath, notUnLoadByUnLoadAll);
+	if (!texturePtr)
+	{
+		std::wcerr << L"texturePtr was nullptr" << std::endl;
+	}
+	else
+	{
+		this->texturePath = texturePath;
+		bodyTexturePtr = texturePtr;
+		body.setTexture(*bodyTexturePtr);
+	}
+}
