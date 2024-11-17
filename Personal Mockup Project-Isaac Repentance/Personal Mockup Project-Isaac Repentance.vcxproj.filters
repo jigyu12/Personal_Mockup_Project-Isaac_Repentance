@@ -24,12 +24,6 @@
     <Filter Include="소스 파일\99. Headers\pch">
       <UniqueIdentifier>{29bf340d-1f61-4efc-a62c-611cae15d1af}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\03. Scenes">
-      <UniqueIdentifier>{6547c2e7-f1fd-45c9-a525-0633a93f7c25}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\03. Scenes\Scene">
-      <UniqueIdentifier>{845bc1f9-d128-46ac-b86b-42d7519eebaf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\02. GameObjects">
       <UniqueIdentifier>{3a06500a-a185-4200-ba96-0f44e85f0ade}</UniqueIdentifier>
     </Filter>
@@ -47,6 +41,21 @@
     </Filter>
     <Filter Include="소스 파일\02. GameObjects\GameObject\TextGameObject">
       <UniqueIdentifier>{5d8188e7-fe3d-406f-9954-32a11d4af3e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\04. Scenes">
+      <UniqueIdentifier>{6547c2e7-f1fd-45c9-a525-0633a93f7c25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\04. Scenes\Scene">
+      <UniqueIdentifier>{845bc1f9-d128-46ac-b86b-42d7519eebaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Animator">
+      <UniqueIdentifier>{cfe34cb5-ae03-4ccb-992a-dd86ebaa03a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Animator\AnimationClip">
+      <UniqueIdentifier>{4d7f4331-4178-4509-9a7a-75fb7bbf08ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\04. Scenes\Scene\DevScenes">
+      <UniqueIdentifier>{f304888c-a949-426e-9c02-bfb1d7799a5b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -72,7 +81,7 @@
       <Filter>소스 파일\01. Managers</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Scene.cpp">
-      <Filter>소스 파일\03. Scenes\Scene</Filter>
+      <Filter>소스 파일\04. Scenes\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Framework\SceneManager.cpp">
       <Filter>소스 파일\01. Managers</Filter>
@@ -94,6 +103,21 @@
     </ClCompile>
     <ClCompile Include="Framework\TextGameObject.cpp">
       <Filter>소스 파일\02. GameObjects\GameObject\TextGameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\AnimationClip.cpp">
+      <Filter>소스 파일\03. Animator\AnimationClip</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SceneDev1.cpp">
+      <Filter>소스 파일\04. Scenes\Scene\DevScenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SceneDev2.cpp">
+      <Filter>소스 파일\04. Scenes\Scene\DevScenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Animator.cpp">
+      <Filter>소스 파일\03. Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SoundManager.cpp">
+      <Filter>소스 파일\01. Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,7 +155,7 @@
       <Filter>소스 파일\01. Managers</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Scene.h">
-      <Filter>소스 파일\03. Scenes\Scene</Filter>
+      <Filter>소스 파일\04. Scenes\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Framework\SceneManager.h">
       <Filter>소스 파일\01. Managers</Filter>
@@ -158,6 +182,24 @@
       <Filter>소스 파일\02. GameObjects\GameObject\TextGameObject</Filter>
     </ClInclude>
     <ClInclude Include="Framework\rapidcsv.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\AnimationClip.h">
+      <Filter>소스 파일\03. Animator\AnimationClip</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SceneDev1.h">
+      <Filter>소스 파일\04. Scenes\Scene\DevScenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SceneDev2.h">
+      <Filter>소스 파일\04. Scenes\Scene\DevScenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Animator.h">
+      <Filter>소스 파일\03. Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SoundManager.h">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\ObjectPool.h">
       <Filter>소스 파일\99. Headers</Filter>
     </ClInclude>
   </ItemGroup>

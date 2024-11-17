@@ -16,12 +16,24 @@ struct AxisInfo
 };
 
 // Isaac ¿ë
-struct DrawOrderComparer
+struct DrawOrderComparerSprite
 {
-	bool operator()(std::shared_ptr<GameObject> a, std::shared_ptr<GameObject> b) const
+	bool operator()(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2) const
 	{
-		if (a->sortingLayer != b->sortingLayer)
-			return a->sortingLayer > b->sortingLayer;
-		return a->GetPosition().y > b->GetPosition().y;
+		if (object1->GetSortingLayers() != object2->GetSortingLayers())
+			return object1->GetSortingLayers() > object2->GetSortingLayers();
+
+		return object1->GetPosition().y > object2->GetPosition().y;
+	}
+};
+
+struct DrawOrderComparerUI
+{
+	bool operator()(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2) const
+	{
+		if (object1->GetSortingLayers() != object2->GetSortingLayers())
+			return object1->GetSortingLayers() > object2->GetSortingLayers();
+
+		return object1->GetsortingOrderUi() > object2->GetsortingOrderUi();
 	}
 };

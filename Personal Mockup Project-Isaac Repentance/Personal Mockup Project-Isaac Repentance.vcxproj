@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\Animator.cpp" />
+    <ClCompile Include="Framework\AnimationClip.cpp" />
     <ClCompile Include="Framework\FileManager.cpp" />
     <ClCompile Include="Framework\Game.cpp" />
     <ClCompile Include="Framework\GameMain.cpp" />
@@ -36,8 +38,13 @@
     <ClCompile Include="Framework\HitBoxCircle.cpp" />
     <ClCompile Include="Framework\SpriteGameObject.cpp" />
     <ClCompile Include="Framework\TextGameObject.cpp" />
+    <ClCompile Include="Framework\SceneDev1.cpp" />
+    <ClCompile Include="Framework\SceneDev2.cpp" />
+    <ClCompile Include="Framework\SoundManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Framework\Animator.h" />
+    <ClInclude Include="Framework\AnimationClip.h" />
     <ClInclude Include="Framework\FileManager.h" />
     <ClInclude Include="Framework\Defines.h" />
     <ClInclude Include="Framework\Enums.h" />
@@ -59,6 +66,10 @@
     <ClInclude Include="Framework\HitBox.h" />
     <ClInclude Include="Framework\SpriteGameObject.h" />
     <ClInclude Include="Framework\TextGameObject.h" />
+    <ClInclude Include="Framework\SceneDev1.h" />
+    <ClInclude Include="Framework\SceneDev2.h" />
+    <ClInclude Include="Framework\SoundManager.h" />
+    <ClInclude Include="Framework\ObjectPool.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

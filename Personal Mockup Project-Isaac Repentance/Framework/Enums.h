@@ -38,3 +38,20 @@ enum class SortingLayers
 
 	Count
 };
+
+/// <summary>
+/// DevScenes must be removed in the game release version.
+/// </summary>
+enum class SceneIds
+{
+	None = -1,
+	
+	SceneDev1,
+	SceneDev2,
+
+	SceneMainTitle,
+	SceneFloor1,
+	SceneBoss1,
+
+	Count
+};

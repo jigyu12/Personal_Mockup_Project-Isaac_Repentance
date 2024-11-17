@@ -7,11 +7,15 @@ public:
 	virtual ~TextGameObject() = default;
 
 	virtual void Init() override = 0;
+	virtual void Enter() override = 0;
 
 	virtual void Update(float deltaTime) override = 0;
+	virtual void FixedUpdate(float deltaTime) override = 0;
 
 	virtual void Draw(sf::RenderWindow& window) override = 0;
+	virtual void PostDraw() override = 0;
 
+	virtual void Exit() override = 0;
 	virtual void Release() override = 0;
 
 	sf::FloatRect GetLocalBounds() const;

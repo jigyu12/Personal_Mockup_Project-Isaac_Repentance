@@ -1,6 +1,28 @@
 #include "pch.h"
 
 std::wstring_convert<std::codecvt_utf8<wchar_t>> Utils::converter;
+std::mt19937 Utils::generator;
+const float Utils::PI = acosf(-1.f);
+
+void Utils::Init()
+{
+    std::random_device rd;
+    generator.seed(rd());
+}
+
+int Utils::RandomRange(int min, int max)
+{
+    std::uniform_int_distribution<int> dist(min, max);
+
+    return dist(generator);
+}
+
+float Utils::RandomRange(float min, float max)
+{
+    std::uniform_real_distribution<float> dist(min, max);
+
+    return dist(generator);
+}
 
 sf::Vector2f Utils::SetOrigin(sf::Transformable& object, Origins originPreset, const sf::FloatRect bound)
 {
@@ -110,4 +132,24 @@ bool Utils::CheckRectCircleCollision(const std::shared_ptr<HitBoxRect> rect, con
     float distance = Distance(circleCenter, sf::Vector2f(closestX, closestY));
 
     return distance < circleRadius;
+}
+
+sf::Vector2f Utils::ScreenToWorld(const sf::Vector2i& screenPos, const sf::View& worldView)
+{
+    return GAME_MGR.GetWindow().mapPixelToCoords(screenPos, worldView);
+}
+
+sf::Vector2i Utils::WorldToScreen(const sf::Vector2f& worldPos, const sf::View& worldView)
+{
+    return GAME_MGR.GetWindow().mapCoordsToPixel(worldPos, worldView);
+}
+
+sf::Vector2f Utils::ScreenToUi(const sf::Vector2i& screenPos, const sf::View& uiView)
+{
+    return GAME_MGR.GetWindow().mapPixelToCoords(screenPos, uiView);
+}
+
+sf::Vector2i Utils::UiToScreen(const sf::Vector2f& worldPos, const sf::View& uiView)
+{
+    return GAME_MGR.GetWindow().mapCoordsToPixel(worldPos, uiView);
 }

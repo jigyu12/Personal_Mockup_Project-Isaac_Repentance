@@ -5,8 +5,12 @@ void Game::Init(const std::wstring& windowName)
     //std::wcin.imbue(std::locale("korean"));
     //std::wcout.imbue(std::locale("korean"));
     
+    Utils::Init();
+
     GAME_MGR.Init(windowName);
     INPUT_MGR.Init();
+
+    SCENE_MGR.Init();
 }
 
 void Game::TotalUpdate()
@@ -45,16 +49,19 @@ void Game::TotalUpdate()
 void Game::Update(float deltaTime)
 {
     INPUT_MGR.Update(deltaTime);
+
+    SCENE_MGR.Update(deltaTime);
+    SCENE_MGR.FixedUpdate(deltaTime);
 }
 
 void Game::Draw(sf::RenderWindow& window)
 {
-    
+    SCENE_MGR.Draw(window);
 }
 
 void Game::Release()
 {
-
+    SCENE_MGR.Release();
 }
 
 void Game::SwitchDebugMod()

@@ -23,6 +23,9 @@ private:												\
 #define INPUT_MGR (InputManager::GetInstance())
 #define FILE_MGR (FileManager::GetInstance())
 #define SCENE_MGR (SceneManager::GetInstance())
+#define SOUND_MGR (SoundManager::GetInstance())
 
 #define RES_TEXTURE_MGR (ResourceManager<sf::Texture>::GetInstance())
 #define RES_FONT_MGR (ResourceManager<sf::Font>::GetInstance())
+#define RES_SOUNDBUFFER_MGR (ResourceManager<sf::SoundBuffer>::GetInstance())
+#define RES_ANICLIP_MGR (ResourceManager<AnimationClip>::GetInstance())

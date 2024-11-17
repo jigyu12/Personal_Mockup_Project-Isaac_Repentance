@@ -7,11 +7,15 @@ public:
 	virtual ~GameObject() = default;
 
 	virtual void Init() = 0;
+	virtual void Enter() = 0;
 
 	virtual void Update(float deltaTime) = 0;
+	virtual void FixedUpdate(float deltaTime) = 0;
 
 	virtual void Draw(sf::RenderWindow& window) = 0;
+	virtual void PostDraw() = 0;
 
+	virtual void Exit() = 0;
 	virtual void Release() = 0;
 
 	virtual sf::FloatRect GetLocalBounds() const = 0;
@@ -29,13 +33,15 @@ public:
 	sf::Vector2f GetOrigin() const { return origin; }
 	float GetRotation() const { return rotation; }
 	sf::Vector2f GetScale() const { return scale; }
+	SortingLayers GetSortingLayers() const { return sortingLayer; }
+	int GetsortingOrderUi() const { return sortingOrderUi; }
 
 	void SetName(const std::wstring& name) { this->name = name; }
+	void SetSortingLayers(const SortingLayers sortingLayer) { this->sortingLayer = sortingLayer; }
+	void SetSortingOrderUi(const int sortingOrderUi) { this->sortingOrderUi = sortingOrderUi; }
 
 	bool IsActive() const { return active; }
 	void SetActive(const bool isActive) { active = isActive; }
-
-	SortingLayers sortingLayer = SortingLayers::None;
 
 protected:
 	std::wstring name;
@@ -48,4 +54,7 @@ protected:
 	Origins originPreset;
 	
 	bool active;
+
+	SortingLayers sortingLayer;
+	int sortingOrderUi;
 };
