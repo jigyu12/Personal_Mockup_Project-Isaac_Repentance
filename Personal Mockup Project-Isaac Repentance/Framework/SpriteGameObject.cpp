@@ -26,6 +26,7 @@ void SpriteGameObject::SetOrigin(const Origins originPreset)
 	if (originPreset == Origins::Custom)
 	{
 		std::wcerr << L"Cannot assign custom originPreset for sprite" << std::endl;
+		
 		return;
 	}
 	this->originPreset = originPreset;

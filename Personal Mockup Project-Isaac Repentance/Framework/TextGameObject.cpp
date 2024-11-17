@@ -26,6 +26,7 @@ void TextGameObject::SetOrigin(const Origins originPreset)
 	if (originPreset == Origins::Custom)
 	{
 		std::wcerr << L"Cannot assign custom originPreset for text" << std::endl;
+
 		return;
 	}
 	this->originPreset = originPreset;
@@ -67,6 +68,7 @@ void TextGameObject::SetTextStringById(const std::wstring& id, const int index)
 	if ((*csvMap).find(id) == (*csvMap).end() || index < 0 || index >= (*csvMap)[stringId].size())
 	{
 		std::wcerr << L"Cannot set text string by id: invaild id or index" << std::endl;
+
 		return;
 	}
 	else

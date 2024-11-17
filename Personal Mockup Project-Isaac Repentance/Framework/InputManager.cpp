@@ -16,10 +16,19 @@ void InputManager::Init()
 	std::shared_ptr<json> loadAxisInfosPtr = FILE_MGR.LoadByJson(axisFilePath);
 	if (loadAxisInfosPtr)
 	{
-		std::vector<AxisInfo> loadAxisInfos = loadAxisInfosPtr->get<std::vector<AxisInfo>>();
-		for (const auto& axisInfo : loadAxisInfos)
+		try
 		{
-			axisInfoMap.insert({ axisInfo.axis, axisInfo });
+			std::vector<AxisInfo> loadAxisInfos = loadAxisInfosPtr->get<std::vector<AxisInfo>>();
+			for (const auto& axisInfo : loadAxisInfos)
+			{
+				axisInfoMap.insert({ axisInfo.axis, axisInfo });
+			}
+		}
+		catch (const std::exception& ex)
+		{
+			std::wcerr << L"Invaild loadAxisInfo data" << std::endl;
+
+			return;
 		}
 	}
 	else
