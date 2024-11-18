@@ -9,6 +9,7 @@ void Game::Init(const std::wstring& windowName)
 
     GAME_MGR.Init(windowName);
     INPUT_MGR.Init();
+    SOUND_MGR.Init();
 
     SCENE_MGR.Init();
 }
@@ -49,6 +50,7 @@ void Game::TotalUpdate()
 void Game::Update(float deltaTime)
 {
     INPUT_MGR.Update(deltaTime);
+    SOUND_MGR.Update(deltaTime);
 
     SCENE_MGR.Update(deltaTime);
     SCENE_MGR.FixedUpdate(deltaTime);
@@ -62,6 +64,7 @@ void Game::Draw(sf::RenderWindow& window)
 
 void Game::Release()
 {
+    SOUND_MGR.Release();
     SCENE_MGR.Release();
 }
 
