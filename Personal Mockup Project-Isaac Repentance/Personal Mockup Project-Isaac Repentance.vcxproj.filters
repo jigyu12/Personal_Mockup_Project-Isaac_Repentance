@@ -51,9 +51,6 @@
     <Filter Include="소스 파일\03. Animator">
       <UniqueIdentifier>{cfe34cb5-ae03-4ccb-992a-dd86ebaa03a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\03. Animator\AnimationClip">
-      <UniqueIdentifier>{4d7f4331-4178-4509-9a7a-75fb7bbf08ed}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\04. Scenes\Scene\DevScenes">
       <UniqueIdentifier>{f304888c-a949-426e-9c02-bfb1d7799a5b}</UniqueIdentifier>
     </Filter>
@@ -103,9 +100,6 @@
     </ClCompile>
     <ClCompile Include="Framework\TextGameObject.cpp">
       <Filter>소스 파일\02. GameObjects\GameObject\TextGameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\AnimationClip.cpp">
-      <Filter>소스 파일\03. Animator\AnimationClip</Filter>
     </ClCompile>
     <ClCompile Include="Framework\SceneDev1.cpp">
       <Filter>소스 파일\04. Scenes\Scene\DevScenes</Filter>
@@ -186,9 +180,6 @@
     </ClInclude>
     <ClInclude Include="Framework\rapidcsv.h">
       <Filter>소스 파일\99. Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\AnimationClip.h">
-      <Filter>소스 파일\03. Animator\AnimationClip</Filter>
     </ClInclude>
     <ClInclude Include="Framework\SceneDev1.h">
       <Filter>소스 파일\04. Scenes\Scene\DevScenes</Filter>

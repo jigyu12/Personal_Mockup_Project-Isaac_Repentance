@@ -3,7 +3,7 @@
 class GameObject
 {
 public:
-	GameObject(const std::wstring& name);
+	GameObject(const std::wstring& name = L"GameObject");
 	virtual ~GameObject() = default;
 
 	virtual void Init() = 0;

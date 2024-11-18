@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\Animator.cpp" />
-    <ClCompile Include="Framework\AnimationClip.cpp" />
     <ClCompile Include="Framework\FileManager.cpp" />
     <ClCompile Include="Framework\Game.cpp" />
     <ClCompile Include="Framework\GameMain.cpp" />
@@ -45,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Animator.h" />
-    <ClInclude Include="Framework\AnimationClip.h" />
     <ClInclude Include="Framework\FileManager.h" />
     <ClInclude Include="Framework\Defines.h" />
     <ClInclude Include="Framework\Enums.h" />

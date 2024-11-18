@@ -55,3 +55,13 @@ enum class SceneIds
 
 	Count
 };
+
+enum class AnimationLoopTypes
+{
+	None = -1,
+
+	Single,
+	Loop,
+
+	Count
+};

@@ -1,68 +1,79 @@
 #include "pch.h"
 
-SpriteGameObject::SpriteGameObject(const std::wstring& name, const std::wstring& texturePath)
-	: GameObject(name), texturePath(texturePath)
+SpriteGameObject::SpriteGameObject(const std::wstring& name)
+	: GameObject(name), texturePath(L"Invaild texturePath")
 {
 }
 
 sf::FloatRect SpriteGameObject::GetLocalBounds() const
 {
-	return body.getLocalBounds();
+	return sprite.getLocalBounds();
 }
 
 sf::FloatRect SpriteGameObject::GetGlobalBounds() const
 {
-	return body.getGlobalBounds();
+	return sprite.getGlobalBounds();
 }
 
 void SpriteGameObject::SetPosition(const sf::Vector2f& position)
 {
 	this->position = position;
-	body.setPosition(position);
+	sprite.setPosition(position);
 }
 
 void SpriteGameObject::SetOrigin(const Origins originPreset)
 {
 	if (originPreset == Origins::Custom)
 	{
-		std::wcerr << L"Cannot assign custom originPreset for sprite" << std::endl;
+		std::wcerr << L"Cannot assign custom originPreset for sprite." << std::endl;
 		
 		return;
 	}
 	this->originPreset = originPreset;
-	origin = Utils::SetOrigin(body, originPreset);
+	origin = Utils::SetOrigin(sprite, originPreset);
 }
 
 void SpriteGameObject::SetOrigin(const sf::Vector2f& newOrigin)
 {
 	originPreset = Origins::Custom;
 	origin = newOrigin;
-	body.setOrigin(origin);
+	sprite.setOrigin(origin);
 }
 
 void SpriteGameObject::SetRotation(float angle)
 {
 	rotation = angle;
-	body.setRotation(angle);
+	sprite.setRotation(angle);
 }
 
 void SpriteGameObject::SetScale(const sf::Vector2f& scale)
 {
 	this->scale = scale;
-	body.setScale(scale);
+	sprite.setScale(scale);
 }
 
-void SpriteGameObject::SetBodyTexture(const std::wstring& texturePath, bool notUnLoadByUnLoadAll)
+bool SpriteGameObject::SetTexture(const std::wstring& texturePath, bool notUnLoadByUnLoadAll)
 {
 	auto texturePtr = RES_TEXTURE_MGR.Get(texturePath, notUnLoadByUnLoadAll);
 	if (!texturePtr)
 	{
-		std::wcerr << L"texturePtr was nullptr" << std::endl;
+		std::wcerr << L"texturePtr was nullptr." << std::endl;
+
+		return false;
 	}
 	else
 	{
 		this->texturePath = texturePath;
-		bodyTexturePtr = texturePtr;
-		body.setTexture(*bodyTexturePtr);
+		spriteTexturePtr = texturePtr;
+
+		return true;
 	}
+}
+
+void SpriteGameObject::SetSpriteTexture(const std::wstring& texturePath, bool notUnLoadByUnLoadAll)
+{
+	if(SetTexture(texturePath, notUnLoadByUnLoadAll))
+		sprite.setTexture(*spriteTexturePtr);
+	else
+		std::wcerr << L"SetSpriteTexture failed." << std::endl;
 }

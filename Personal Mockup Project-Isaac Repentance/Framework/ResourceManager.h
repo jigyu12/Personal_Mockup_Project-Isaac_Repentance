@@ -14,19 +14,19 @@ public:
 
 	void Release() {}
 
-	std::shared_ptr<T> Get(const std::wstring& id, bool notUnLoadByUnLoadAll = false)
+	std::shared_ptr<T> Get(const std::wstring& path, bool notUnLoadByUnLoadAll = false)
 	{
-		auto it = resources.find(id);
-		if (it == resources.end() && !Load(id, notUnLoadByUnLoadAll))
+		auto it = resources.find(path);
+		if (it == resources.end() && !Load(path, notUnLoadByUnLoadAll))
 		{
 			return nullptr;
 		}
-		return resources[id].first;
+		return resources[path].first;
 	}
 
-	bool UnLoadForce(const std::wstring& id)
+	bool UnLoadForce(const std::wstring& path)
 	{
-		auto it = resources.find(id);
+		auto it = resources.find(path);
 		if (it == resources.end())
 			return false;
 
@@ -52,18 +52,18 @@ public:
 	}
 
 private:		
-	bool Load(const std::wstring& id, bool notUnLoadByUnLoadAll)
+	bool Load(const std::wstring& path, bool notUnLoadByUnLoadAll)
 	{
-		if (resources.find(id) != resources.end())
+		if (resources.find(path) != resources.end())
 			return false;
 
 		std::shared_ptr<T> resource = std::make_shared<T>();
 
-		std::string s_id = Utils::converter.to_bytes(id);
+		std::string s_path = Utils::converter.to_bytes(path);
 
-		bool isSuccess = resource->loadFromFile(s_id);
+		bool isSuccess = resource->loadFromFile(s_path);
 		if (isSuccess)
-			resources.insert({ id, std::make_pair(resource, notUnLoadByUnLoadAll) });
+			resources.insert({ path, std::make_pair(resource, notUnLoadByUnLoadAll) });
 		else
 			std::wcerr << L"Failed to load resource" << std::endl;
 

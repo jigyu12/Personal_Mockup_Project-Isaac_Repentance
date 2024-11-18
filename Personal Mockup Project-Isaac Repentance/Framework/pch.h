@@ -40,6 +40,5 @@
 #include "SpriteGameObject.h"
 #include "TextGameObject.h"
 #include "Scene.h"
-#include "AnimationClip.h"
 #include "Animator.h"
 

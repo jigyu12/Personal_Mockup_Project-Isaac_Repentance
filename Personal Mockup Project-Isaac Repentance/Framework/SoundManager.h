@@ -19,11 +19,11 @@ public:
 	void SetBgmVolume(const float volume);
 	void SetSfxVolume(const float volume);
 
-	void PlayBgm(std::wstring path, bool loop = true);
+	void PlayBgm(const std::wstring& path, bool loop = true);
 	void PauseBgm();
 	void StopBgm();
 
-	void PlaySfx(std::wstring path, bool loop = false);
+	void PlaySfx(const std::wstring& path, bool loop = false);
 
 private:
 	std::shared_ptr<sf::Sound> bgm;

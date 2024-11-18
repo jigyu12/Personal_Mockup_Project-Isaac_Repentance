@@ -3,7 +3,7 @@
 class TextGameObject : public GameObject
 {
 public:
-	TextGameObject(const std::wstring& name, const std::wstring& fontPath, const std::wstring& stringPath, const std::wstring& stringId);
+	TextGameObject(const std::wstring& name = L"TextGameObject");
 	virtual ~TextGameObject() = default;
 
 	virtual void Init() override = 0;
@@ -18,18 +18,19 @@ public:
 	virtual void Exit() override = 0;
 	virtual void Release() override = 0;
 
-	sf::FloatRect GetLocalBounds() const;
-	sf::FloatRect GetGlobalBounds() const;
+	virtual sf::FloatRect GetLocalBounds() const override;
+	virtual sf::FloatRect GetGlobalBounds() const override;
 
-	void SetPosition(const sf::Vector2f& position);
-	void SetOrigin(const Origins originPreset);
-	void SetOrigin(const sf::Vector2f& newOrigin);
-	void SetRotation(float angle);
-	void SetScale(const sf::Vector2f& scale);
-	void SetFont(const std::wstring& fontPath, bool notUnLoadByUnLoadAll);
+	virtual void SetPosition(const sf::Vector2f& position) override;
+	virtual void SetOrigin(const Origins originPreset) override;
+	virtual void SetOrigin(const sf::Vector2f& newOrigin) override;
+	virtual void SetRotation(float angle) override;
+	virtual void SetScale(const sf::Vector2f& scale) override;
+
+	void SetFont(const std::wstring& fontPath, bool notUnLoadByUnLoadAll = false);
 	void SetTextSize(const int size);
 	void SetTextColor(const sf::Color& color);
-	void SetTextStringById(const std::wstring& id, const int index);
+	void SetTextString(const std::wstring& stringPath, const std::wstring& id, const int index);
 
 protected:
 	std::wstring fontPath;

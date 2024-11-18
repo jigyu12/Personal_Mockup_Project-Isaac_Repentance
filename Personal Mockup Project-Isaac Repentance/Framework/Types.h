@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
+#include "FileManager.h"
 
 struct AxisInfo
 {
@@ -35,5 +36,24 @@ struct DrawOrderComparerUI
 			return object1->GetSortingLayers() > object2->GetSortingLayers();
 
 		return object1->GetsortingOrderUi() > object2->GetsortingOrderUi();
+	}
+};
+
+struct AnimationFrame
+{
+	std::wstring texturePath;
+	sf::IntRect textureCoord;
+};
+
+struct AnimationClip
+{
+	std::wstring id;
+	AnimationLoopTypes loopType;
+	int fps;
+	std::vector<AnimationFrame> frames;
+
+	bool loadFromFile(const std::string& filePath)
+	{
+		
 	}
 };

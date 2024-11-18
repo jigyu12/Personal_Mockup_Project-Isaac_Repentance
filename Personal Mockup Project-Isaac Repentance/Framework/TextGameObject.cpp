@@ -1,7 +1,7 @@
 #include "pch.h"
 
-TextGameObject::TextGameObject(const std::wstring& name, const std::wstring& fontPath, const std::wstring& stringPath, const std::wstring& stringId)
-	: GameObject(name), fontPath(fontPath), stringPath(stringPath), stringId(stringId)
+TextGameObject::TextGameObject(const std::wstring& name)
+	: GameObject(name), fontPath(L"Invaild fontPath"), stringPath(L"Invaild stringPath"), stringId(L"Invaild stringId")
 {
 }
 
@@ -25,7 +25,7 @@ void TextGameObject::SetOrigin(const Origins originPreset)
 {
 	if (originPreset == Origins::Custom)
 	{
-		std::wcerr << L"Cannot assign custom originPreset for text" << std::endl;
+		std::wcerr << L"Cannot assign custom originPreset for text." << std::endl;
 
 		return;
 	}
@@ -57,7 +57,7 @@ void TextGameObject::SetFont(const std::wstring& fontPath, bool notUnLoadByUnLoa
 	auto fontPtr = RES_FONT_MGR.Get(fontPath, notUnLoadByUnLoadAll);
 	if (!fontPtr)
 	{
-		std::wcerr << L"fontPtr was nullptr" << std::endl;
+		std::wcerr << L"fontPtr was nullptr." << std::endl;
 	}
 	else
 	{
@@ -77,19 +77,25 @@ void TextGameObject::SetTextColor(const sf::Color& color)
 	text.setFillColor(color);
 }
 
-void TextGameObject::SetTextStringById(const std::wstring& id, const int index)
+void TextGameObject::SetTextString(const std::wstring& stringPath, const std::wstring& id, const int index)
 {
-	auto csvMap = FILE_MGR.LoadByCsv(stringPath);
-	if ((*csvMap).find(id) == (*csvMap).end() || index < 0 || index >= (*csvMap)[stringId].size())
+	auto csvMapPtr = FILE_MGR.LoadByCsv(stringPath);
+	if (!csvMapPtr)
 	{
-		std::wcerr << L"Cannot set text string by id: invaild id or index" << std::endl;
+		std::wcerr << L"csvMapPtr was nullptr." << std::endl;
 
 		return;
 	}
-	else
+	
+	if ((*csvMapPtr).find(id) == (*csvMapPtr).end() || index < 0 || index >= (*csvMapPtr)[stringId].size())
 	{
-		stringId = id;
-		text.setString((*csvMap)[stringId][index]);
-		SetOrigin(originPreset);
+		std::wcerr << L"Cannot set text string by id: invaild id or index." << std::endl;
+
+		return;
 	}
+	
+	this->stringPath = stringPath;
+	stringId = id;
+	text.setString((*csvMapPtr)[stringId][index]);
+	SetOrigin(originPreset);
 }
