@@ -23,6 +23,7 @@ public:
 
 			objectPtr->Init();
 			objectPtr->Enter();
+			objectPtr->SetActive(true);
 
 			addGameObjects.push_back(objectPtr);
 			usedList.push_back(objectPtr);
@@ -34,11 +35,11 @@ public:
 
 		unusedList.pop_front();
 
-		addGameObjects.push_back(objectPtr);
-		usedList.push_back(objectPtr);
-
 		objectPtr->Enter();
 		objectPtr->SetActive(true);
+
+		addGameObjects.push_back(objectPtr);
+		usedList.push_back(objectPtr);
 
 		return objectPtr;
 	}
