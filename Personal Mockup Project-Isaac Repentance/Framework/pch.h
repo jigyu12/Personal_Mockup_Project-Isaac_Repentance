@@ -25,6 +25,7 @@
 #include "Utils.h"
 #include "Variables.h"
 #include "ObjectPool.h"
+#include "jsonSerialize.h"
 #include "HitBox.h"
 #include "HitBoxRect.h"
 #include "HitBoxCircle.h"
@@ -41,3 +42,4 @@
 #include "Scene.h"
 #include "AnimationClip.h"
 #include "Animator.h"
+

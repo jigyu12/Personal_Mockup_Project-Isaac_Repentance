@@ -41,6 +41,7 @@
     <ClCompile Include="Framework\SceneDev1.cpp" />
     <ClCompile Include="Framework\SceneDev2.cpp" />
     <ClCompile Include="Framework\SoundManager.cpp" />
+    <ClCompile Include="Framework\jsonSerialize.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Animator.h" />
@@ -70,6 +71,7 @@
     <ClInclude Include="Framework\SceneDev2.h" />
     <ClInclude Include="Framework\SoundManager.h" />
     <ClInclude Include="Framework\ObjectPool.h" />
+    <ClInclude Include="Framework\jsonSerialize.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

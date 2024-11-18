@@ -119,6 +119,9 @@
     <ClCompile Include="Framework\SoundManager.cpp">
       <Filter>소스 파일\01. Managers</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\jsonSerialize.cpp">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Game.h">
@@ -200,6 +203,9 @@
       <Filter>소스 파일\01. Managers</Filter>
     </ClInclude>
     <ClInclude Include="Framework\ObjectPool.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\jsonSerialize.h">
       <Filter>소스 파일\99. Headers</Filter>
     </ClInclude>
   </ItemGroup>
