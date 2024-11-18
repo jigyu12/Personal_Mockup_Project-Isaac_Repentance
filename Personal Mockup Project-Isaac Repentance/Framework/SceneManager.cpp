@@ -35,7 +35,6 @@ void SceneManager::FixedUpdate(float deltaTime)
 void SceneManager::Draw(sf::RenderWindow& window)
 {
 	scenes[(int)currentSceneId]->Draw(window);
-	PostDraw();
 }
 
 void SceneManager::PostDraw()

@@ -57,6 +57,7 @@ void Game::Update(float deltaTime)
 void Game::Draw(sf::RenderWindow& window)
 {
     SCENE_MGR.Draw(window);
+    SCENE_MGR.PostDraw();
 }
 
 void Game::Release()

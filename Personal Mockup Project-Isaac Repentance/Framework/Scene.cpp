@@ -84,12 +84,23 @@ void Scene::PostDraw()
 {
 	ApplyAddGoList();
 	ApplyRemoveGoList();
+
+	for (auto& obj : gameObjects)
+	{
+		if (!obj->IsActive())
+			continue;
+
+		obj->PostDraw();
+	}
 }
 
 void Scene::Exit()
 {
 	ApplyAddGoList();
 	ApplyRemoveGoList();
+
+	for (auto& obj : gameObjects)
+		obj->Exit();
 
 	RES_TEXTURE_MGR.UnLoadAll();
 	RES_FONT_MGR.UnLoadAll();

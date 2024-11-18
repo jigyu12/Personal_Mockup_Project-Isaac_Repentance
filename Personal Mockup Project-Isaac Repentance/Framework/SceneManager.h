@@ -13,6 +13,7 @@ public:
 	void FixedUpdate(float deltaTime);
 
 	void Draw(sf::RenderWindow& window);
+	void PostDraw();
 
 	void Release();
 
@@ -21,8 +22,6 @@ public:
 	void ChangeScene(const SceneIds sceneId);
 
 private:
-	void PostDraw();
-
 	std::vector<std::shared_ptr<Scene>> scenes;
 
 	SceneIds startSceneId;
