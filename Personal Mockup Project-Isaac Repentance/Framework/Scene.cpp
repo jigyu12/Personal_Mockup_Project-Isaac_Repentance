@@ -44,7 +44,8 @@ void Scene::FixedUpdate(float deltaTime)
 
 void Scene::Draw(sf::RenderWindow& window)
 {
-	std::priority_queue<std::shared_ptr<GameObject>, std::vector<std::shared_ptr<GameObject>>, DrawOrderComparerSprite> drawQueue;
+	std::priority_queue<std::shared_ptr<GameObject>, std::vector<std::shared_ptr<GameObject>>, DrawOrderComparerBack> drawBackQueue;
+	std::priority_queue<std::shared_ptr<GameObject>, std::vector<std::shared_ptr<GameObject>>, DrawOrderComparerSprite> drawSpriteQueue;
 	std::priority_queue<std::shared_ptr<GameObject>, std::vector<std::shared_ptr<GameObject>>, DrawOrderComparerUI> drawUiQueue;
 
 	for (auto& obj : gameObjects)
@@ -54,19 +55,27 @@ void Scene::Draw(sf::RenderWindow& window)
 
 		if (obj->GetSortingLayers() >= SortingLayers::UI)
 			drawUiQueue.push(obj);
+		else if(obj->GetSortingLayers() <= SortingLayers::Background)
+			drawBackQueue.push(obj);
 		else
-			drawQueue.push(obj);
+			drawSpriteQueue.push(obj);
 	}
 
 
 	const sf::View& saveView = window.getView();
 
 	window.setView(worldView);
-	while (!drawQueue.empty())
+	while (!drawBackQueue.empty())
 	{
-		std::shared_ptr<GameObject> obj = drawQueue.top();
+		std::shared_ptr<GameObject> obj = drawBackQueue.top();
 		obj->Draw(window);
-		drawQueue.pop();
+		drawBackQueue.pop();
+	}
+	while (!drawSpriteQueue.empty())
+	{
+		std::shared_ptr<GameObject> obj = drawSpriteQueue.top();
+		obj->Draw(window);
+		drawSpriteQueue.pop();
 	}
 
 	window.setView(uiView);
