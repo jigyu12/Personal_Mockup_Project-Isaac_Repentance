@@ -7,6 +7,11 @@ public:
 	AnimationClip(const std::wstring& id, const AnimationLoopTypes loopType, const int fps, const std::vector<AnimationFrame>& frames) : id(id), loopType(loopType), fps(fps), frames(frames) {}
 
 	bool loadFromFile(const std::string& filePath);
+	
+	void SetId(const std::wstring& id) { this->id = id; }
+	void SetLoopType(const AnimationLoopTypes loopType) { this->loopType = loopType; }
+	void SetFps(const int fps) { this->fps = fps; }
+	void SetFrames(const std::vector<AnimationFrame>& frames) { this->frames = frames; }
 
 	const std::wstring& GetId() const { return id; }
 	AnimationLoopTypes GetLoopType() const { return loopType; }

@@ -3,20 +3,17 @@
 bool AnimationClip::loadFromFile(const std::string& filePath)
 {
 	std::wstring w_filePath = Utils::converter.from_bytes(filePath);
-	std::shared_ptr<json> loadAnimationClipsPtr = FILE_MGR.LoadByJson(w_filePath);
-	if (loadAnimationClipsPtr)
+	std::shared_ptr<json> loadAnimationClipPtr = FILE_MGR.LoadByJson(w_filePath);
+	if (loadAnimationClipPtr)
 	{
 		try
 		{
-			frames.clear();
-			std::vector<AnimationClip> loadAnimationClips = loadAnimationClipsPtr->get<std::vector<AnimationClip>>();
-			for (int i = 0; i < loadAnimationClips.size(); i++)
-			{
-				id = loadAnimationClips[i].id;
-				loopType = loadAnimationClips[i].loopType;
-				fps = loadAnimationClips[i].fps;
-				frames = loadAnimationClips[i].frames;
-			}
+			AnimationClip loadAnimationClip = loadAnimationClipPtr->get<AnimationClip>();
+
+			id = loadAnimationClip.id;
+			loopType = loadAnimationClip.loopType;
+			fps = loadAnimationClip.fps;
+			frames = loadAnimationClip.frames;
 		}
 		catch (const std::exception& ex)
 		{
@@ -27,7 +24,7 @@ bool AnimationClip::loadFromFile(const std::string& filePath)
 	}
 	else
 	{
-		std::wcerr << L"loadAnimationClipsPtr was nullptr" << std::endl;
+		std::wcerr << L"loadAnimationClipPtr was nullptr" << std::endl;
 
 		return false;
 	}
