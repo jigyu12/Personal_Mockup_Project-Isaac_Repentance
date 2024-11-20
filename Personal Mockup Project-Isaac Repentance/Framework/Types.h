@@ -51,6 +51,17 @@ struct DrawOrderComparerUI
 	}
 };
 
+struct DrawOrderComparerBack
+{
+	bool operator()(std::shared_ptr<GameObject> object1, std::shared_ptr<GameObject> object2) const
+	{
+		if (object1->GetSortingLayers() != object2->GetSortingLayers())
+			return object1->GetSortingLayers() > object2->GetSortingLayers();
+
+		return object1->GetsortingOrderBack() > object2->GetsortingOrderBack();
+	}
+};
+
 struct AnimationFrame
 {
 	std::wstring texturePath;

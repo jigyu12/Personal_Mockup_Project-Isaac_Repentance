@@ -35,13 +35,20 @@ public:
 	sf::Vector2f GetScale() const { return scale; }
 	SortingLayers GetSortingLayers() const { return sortingLayer; }
 	int GetsortingOrderUi() const { return sortingOrderUi; }
+	int GetsortingOrderBack() const { return sortingOrderBack; }
 
 	void SetName(const std::wstring& name) { shared_from_this()->name = name; }
 	void SetSortingLayers(const SortingLayers sortingLayer) { shared_from_this()->sortingLayer = sortingLayer; }
 	void SetSortingOrderUi(const int sortingOrderUi) { shared_from_this()->sortingOrderUi = sortingOrderUi; }
+	void SetSortingOrderBack(const int sortingOrderBack) { shared_from_this()->sortingOrderBack = sortingOrderBack; }
 
 	bool IsActive() const { return active; }
 	void SetActive(const bool isActive) { active = isActive; }
+
+	std::shared_ptr<GameObject> getSharedThis()
+	{
+		return shared_from_this();
+	}
 
 protected:
 	std::wstring name;
@@ -57,4 +64,5 @@ protected:
 
 	SortingLayers sortingLayer;
 	int sortingOrderUi;
+	int sortingOrderBack;
 };

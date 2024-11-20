@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../Codes/Room.h"
+
 class SceneDev2 : public Scene
 {
 public:
@@ -19,5 +21,5 @@ public:
 	void Release() override;
 
 protected:
-
+	std::vector<std::shared_ptr<Room>> rooms;
 };

@@ -42,6 +42,9 @@
     <ClCompile Include="Framework\SceneDev2.cpp" />
     <ClCompile Include="Framework\SoundManager.cpp" />
     <ClCompile Include="Framework\jsonSerialize.cpp" />
+    <ClCompile Include="Codes\Room.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">../Framework/pch.h</PrecompiledHeaderFile>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\AnimationClip.h" />
@@ -72,6 +75,7 @@
     <ClInclude Include="Framework\SoundManager.h" />
     <ClInclude Include="Framework\ObjectPool.h" />
     <ClInclude Include="Framework\jsonSerialize.h" />
+    <ClInclude Include="Codes\Room.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
