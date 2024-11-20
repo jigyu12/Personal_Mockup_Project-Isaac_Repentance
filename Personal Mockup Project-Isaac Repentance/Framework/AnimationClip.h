@@ -8,15 +8,15 @@ public:
 
 	bool loadFromFile(const std::string& filePath);
 	
-	void SetId(const std::wstring& id) { this->id = id; }
-	void SetLoopType(const AnimationLoopTypes loopType) { this->loopType = loopType; }
-	void SetFps(const int fps) { this->fps = fps; }
-	void SetFrames(const std::vector<AnimationFrame>& frames) { this->frames = frames; }
-
 	const std::wstring& GetId() const { return id; }
 	AnimationLoopTypes GetLoopType() const { return loopType; }
 	int GetFps() const { return fps; }
 	const std::vector<AnimationFrame>& GetFrames() const { return frames; }
+
+	void SetId(const std::wstring& id) { this->id = id; }
+	void SetLoopType(const AnimationLoopTypes loopType) { this->loopType = loopType; }
+	void SetFps(const int fps) { this->fps = fps; }
+	void SetFrames(const std::vector<AnimationFrame>& frames) { this->frames = frames; }
 
 private:
 	std::wstring id;

@@ -65,6 +65,7 @@ void Game::Draw(sf::RenderWindow& window)
 void Game::Release()
 {
     SOUND_MGR.Release();
+
     SCENE_MGR.Release();
 }
 
