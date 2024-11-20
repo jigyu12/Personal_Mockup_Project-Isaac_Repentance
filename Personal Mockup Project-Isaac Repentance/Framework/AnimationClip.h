@@ -3,10 +3,15 @@
 class AnimationClip
 {
 public:
-	AnimationClip() {}
+	AnimationClip() : id(L"Invaild Id"), loopType(AnimationLoopTypes::None), fps(0) {}
 	AnimationClip(const std::wstring& id, const AnimationLoopTypes loopType, const int fps, const std::vector<AnimationFrame>& frames) : id(id), loopType(loopType), fps(fps), frames(frames) {}
 
 	bool loadFromFile(const std::string& filePath);
+
+	const std::wstring& GetId() const { return id; }
+	AnimationLoopTypes GetLoopType() const { return loopType; }
+	int GetFps() const { return fps; }
+	const std::vector<AnimationFrame>& GetFrames() const { return frames; }
 
 private:
 	std::wstring id;

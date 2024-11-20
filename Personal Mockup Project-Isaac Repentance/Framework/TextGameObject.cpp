@@ -58,6 +58,8 @@ void TextGameObject::SetFont(const std::wstring& fontPath, bool notUnLoadByUnLoa
 	if (!fontPtr)
 	{
 		std::wcerr << L"fontPtr was nullptr." << std::endl;
+
+		return;
 	}
 	else
 	{

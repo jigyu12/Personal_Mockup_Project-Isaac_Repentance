@@ -32,6 +32,8 @@ void InputManager::Init()
 	else
 	{
 		std::wcerr << L"loadAxisInfosPtr was nullptr" << std::endl;
+
+		return;
 	}
 }
 

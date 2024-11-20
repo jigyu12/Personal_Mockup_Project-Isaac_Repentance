@@ -24,6 +24,8 @@ void SoundManager::Init(int totalChannels)
 	else
 	{
 		std::wcerr << L"loadVolumeInfoPtr was nullptr" << std::endl;
+
+		return;
 	}
 
 	bgm = std::make_shared<sf::Sound>();
