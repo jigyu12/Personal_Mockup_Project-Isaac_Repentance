@@ -54,6 +54,9 @@
     <Filter Include="소스 파일\04. Scenes\Scene\DevScenes">
       <UniqueIdentifier>{f304888c-a949-426e-9c02-bfb1d7799a5b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03. Animator\AnimationClip">
+      <UniqueIdentifier>{2a59dadc-db88-4f33-ade3-496010a4b709}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\GameMain.cpp">
@@ -115,6 +118,9 @@
     </ClCompile>
     <ClCompile Include="Framework\jsonSerialize.cpp">
       <Filter>소스 파일\99. Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\AnimationClip.cpp">
+      <Filter>소스 파일\03. Animator\AnimationClip</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +204,9 @@
     </ClInclude>
     <ClInclude Include="Framework\jsonSerialize.h">
       <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\AnimationClip.h">
+      <Filter>소스 파일\03. Animator\AnimationClip</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

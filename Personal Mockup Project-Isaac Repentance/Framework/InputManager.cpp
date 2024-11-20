@@ -10,14 +10,12 @@ void InputManager::Init()
 	holdMouseButtons.clear();
 	upMouseButtons.clear();
 
-	axisInfoMap.clear();
-
-
 	std::shared_ptr<json> loadAxisInfosPtr = FILE_MGR.LoadByJson(axisFilePath);
 	if (loadAxisInfosPtr)
 	{
 		try
 		{
+			axisInfoMap.clear();
 			std::vector<AxisInfo> loadAxisInfos = loadAxisInfosPtr->get<std::vector<AxisInfo>>();
 			for (const auto& axisInfo : loadAxisInfos)
 			{

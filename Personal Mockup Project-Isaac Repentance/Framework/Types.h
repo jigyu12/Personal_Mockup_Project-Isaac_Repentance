@@ -1,14 +1,26 @@
 #pragma once
 
 #include "GameObject.h"
-#include "FileManager.h"
+
+struct IntegerRect
+{
+	int left;
+	int top;
+	int width;
+	int height;
+	
+	IntegerRect() : left(0), top(0), width(0), height(0) {}
+	IntegerRect(const int left, const int top, const int width, const int height) : left(left), top(top), width(width), height(height) {}
+};
 
 struct AxisInfo
 {
 	Axis axis;
 	std::unordered_map<sf::Keyboard::Key, bool> keyMap;
-	float sensitivity = 10.f;
-	float value = 0.f;
+	float sensitivity;
+	float value;
+
+	AxisInfo() : axis(Axis::None), sensitivity(0.f), value(0.f) {}
 
 	void AddKey(sf::Keyboard::Key key, bool isPositive)
 	{
@@ -42,18 +54,8 @@ struct DrawOrderComparerUI
 struct AnimationFrame
 {
 	std::wstring texturePath;
-	sf::IntRect textureCoord;
-};
+	IntegerRect textureCoord;
 
-struct AnimationClip
-{
-	std::wstring id;
-	AnimationLoopTypes loopType;
-	int fps;
-	std::vector<AnimationFrame> frames;
-
-	bool loadFromFile(const std::string& filePath)
-	{
-		
-	}
+	AnimationFrame() : texturePath(L"Invaild path"), textureCoord(0,0,0,0) {}
+	AnimationFrame(const std::wstring& texturePath, const IntegerRect& textureCoord) : texturePath(texturePath), textureCoord(textureCoord) {}
 };
