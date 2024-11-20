@@ -45,6 +45,11 @@ public:
 	bool IsActive() const { return active; }
 	void SetActive(const bool isActive) { active = isActive; }
 
+	std::shared_ptr<GameObject> getSharedThis()
+	{
+		return shared_from_this();
+	}
+
 protected:
 	std::wstring name;
 

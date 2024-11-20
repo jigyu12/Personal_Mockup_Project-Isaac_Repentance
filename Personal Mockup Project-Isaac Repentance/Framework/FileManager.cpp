@@ -74,10 +74,10 @@ void FileManager::SaveByCsv(const std::vector<std::vector<std::wstring>>& rows, 
 
 std::shared_ptr<std::unordered_map<std::wstring, std::vector<std::wstring>>> FileManager::LoadByCsv(const std::wstring& filePath) const
 {
-	std::shared_ptr<std::unordered_map<std::wstring, std::vector<std::wstring>>> csvMap = std::make_shared<std::unordered_map<std::wstring, std::vector<std::wstring>>>();
-
 	try
 	{
+		std::shared_ptr<std::unordered_map<std::wstring, std::vector<std::wstring>>> csvMap = std::make_shared<std::unordered_map<std::wstring, std::vector<std::wstring>>>();
+
 		csv csvFile(Utils::converter.to_bytes(filePath), rapidcsv::LabelParams(0, -1));
 		for (int i = 0; i < csvFile.GetRowCount(); i++)
 		{
@@ -93,6 +93,10 @@ std::shared_ptr<std::unordered_map<std::wstring, std::vector<std::wstring>>> Fil
 
 			csvMap->insert({ key, value });
 		}
+
+		std::wcout << filePath + L" Load Success" << std::endl;
+
+		return csvMap;
 	}
 	catch (const std::exception& ex)
 	{
@@ -100,8 +104,4 @@ std::shared_ptr<std::unordered_map<std::wstring, std::vector<std::wstring>>> Fil
 
 		return nullptr;
 	}
-	
-	std::wcout << filePath + L" Load Success" << std::endl;
-
-	return csvMap;
 }

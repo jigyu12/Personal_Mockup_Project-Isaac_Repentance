@@ -17,7 +17,7 @@ sf::FloatRect SpriteGameObject::GetGlobalBounds() const
 
 void SpriteGameObject::SetPosition(const sf::Vector2f& position)
 {
-	std::enable_shared_from_this<SpriteGameObject>::shared_from_this()->position = position;
+	std::dynamic_pointer_cast<SpriteGameObject>(shared_from_this())->position = position;
 	sprite.setPosition(position);
 }
 
@@ -29,7 +29,7 @@ void SpriteGameObject::SetOrigin(const Origins originPreset)
 		
 		return;
 	}
-	std::enable_shared_from_this<SpriteGameObject>::shared_from_this()->originPreset = originPreset;
+	std::dynamic_pointer_cast<SpriteGameObject>(shared_from_this())->originPreset = originPreset;
 	origin = Utils::SetOrigin(sprite, originPreset);
 }
 
@@ -48,7 +48,7 @@ void SpriteGameObject::SetRotation(float angle)
 
 void SpriteGameObject::SetScale(const sf::Vector2f& scale)
 {
-	std::enable_shared_from_this<SpriteGameObject>::shared_from_this()->scale = scale;
+	std::dynamic_pointer_cast<SpriteGameObject>(shared_from_this())->scale = scale;
 	sprite.setScale(scale);
 }
 
@@ -63,7 +63,7 @@ bool SpriteGameObject::SetTexture(const std::wstring& texturePath, const bool no
 	}
 	else
 	{
-		std::enable_shared_from_this<SpriteGameObject>::shared_from_this()->texturePath = texturePath;
+		std::dynamic_pointer_cast<SpriteGameObject>(shared_from_this())->texturePath = texturePath;
 		spriteTexturePtr = texturePtr;
 
 		return true;

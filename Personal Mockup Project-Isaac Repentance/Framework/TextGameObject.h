@@ -1,6 +1,6 @@
 #pragma once
 
-class TextGameObject : public GameObject, public std::enable_shared_from_this<TextGameObject>
+class TextGameObject : public GameObject
 {
 public:
 	TextGameObject(const std::wstring& name = L"TextGameObject");

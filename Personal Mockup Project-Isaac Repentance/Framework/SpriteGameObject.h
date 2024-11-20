@@ -1,6 +1,6 @@
 #pragma once
 
-class SpriteGameObject : public GameObject, public std::enable_shared_from_this<SpriteGameObject>
+class SpriteGameObject : public GameObject
 {
 public:
 	SpriteGameObject(const std::wstring& name = L"SpriteGameObject");

@@ -8,12 +8,32 @@ SceneDev2::SceneDev2()
 
 void SceneDev2::Init()
 {
+	{
+		std::shared_ptr<Room> basicRoom = std::make_shared<Room>();
+		basicRoom->SetName(L"basicRoom");
+		basicRoom->SetSortingLayers(SortingLayers::Background);
+		basicRoom->SetSortingOrderBack(0);
+
+		rooms.push_back(AddGo(basicRoom));
+	}
 	Scene::Init();
 }
 
 void SceneDev2::Enter()
 {
+	GAME_MGR.GetWindow().setMouseCursorVisible(true);
+
+	sf::Vector2f windowSize = { (float)GAME_MGR.GetWindowWidth(), (float)GAME_MGR.GetWindowHeight() };
+
+	worldView.setSize(windowSize);
+	worldView.setCenter(0.f, 0.f);
+
+	uiView.setSize(windowSize);
+	uiView.setCenter(windowSize.x * 0.5f, windowSize.y * 0.5f);
+
 	Scene::Enter();
+
+	rooms[0]->SetIsDrawspriteControl(true);
 }
 
 void SceneDev2::Update(float deltaTime)

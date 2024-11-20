@@ -17,7 +17,7 @@ sf::FloatRect TextGameObject::GetGlobalBounds() const
 
 void TextGameObject::SetPosition(const sf::Vector2f& position)
 {
-	std::enable_shared_from_this<TextGameObject>::shared_from_this()->position = position;
+	std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->position = position;
 	text.setPosition(position);
 }
 
@@ -29,7 +29,7 @@ void TextGameObject::SetOrigin(const Origins originPreset)
 
 		return;
 	}
-	std::enable_shared_from_this<TextGameObject>::shared_from_this()->originPreset = originPreset;
+	std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->originPreset = originPreset;
 	origin = Utils::SetOrigin(text, originPreset);
 }
 
@@ -48,7 +48,7 @@ void TextGameObject::SetRotation(float angle)
 
 void TextGameObject::SetScale(const sf::Vector2f& scale)
 {
-	std::enable_shared_from_this<TextGameObject>::shared_from_this()->scale = scale;
+	std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->scale = scale;
 	text.setScale(scale);
 }
 
@@ -63,9 +63,9 @@ void TextGameObject::SetFont(const std::wstring& fontPath, const bool notUnLoadB
 	}
 	else
 	{
-		std::enable_shared_from_this<TextGameObject>::shared_from_this()->fontPath = fontPath;
-		std::enable_shared_from_this<TextGameObject>::shared_from_this()->fontPtr = fontPtr;
-		text.setFont(*(std::enable_shared_from_this<TextGameObject>::shared_from_this()->fontPtr));
+		std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->fontPath = fontPath;
+		std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->fontPtr = fontPtr;
+		text.setFont(*(std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->fontPtr));
 	}
 }
 
@@ -96,7 +96,7 @@ void TextGameObject::SetTextString(const std::wstring& stringPath, const std::ws
 		return;
 	}
 	
-	std::enable_shared_from_this<TextGameObject>::shared_from_this()->stringPath = stringPath;
+	std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->stringPath = stringPath;
 	stringId = id;
 	text.setString((*csvMapPtr)[stringId][index]);
 	SetOrigin(originPreset);
