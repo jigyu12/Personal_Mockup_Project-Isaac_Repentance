@@ -17,7 +17,7 @@ sf::FloatRect TextGameObject::GetGlobalBounds() const
 
 void TextGameObject::SetPosition(const sf::Vector2f& position)
 {
-	this->position = position;
+	std::enable_shared_from_this<TextGameObject>::shared_from_this()->position = position;
 	text.setPosition(position);
 }
 
@@ -29,7 +29,7 @@ void TextGameObject::SetOrigin(const Origins originPreset)
 
 		return;
 	}
-	this->originPreset = originPreset;
+	std::enable_shared_from_this<TextGameObject>::shared_from_this()->originPreset = originPreset;
 	origin = Utils::SetOrigin(text, originPreset);
 }
 
@@ -48,11 +48,11 @@ void TextGameObject::SetRotation(float angle)
 
 void TextGameObject::SetScale(const sf::Vector2f& scale)
 {
-	this->scale = scale;
+	std::enable_shared_from_this<TextGameObject>::shared_from_this()->scale = scale;
 	text.setScale(scale);
 }
 
-void TextGameObject::SetFont(const std::wstring& fontPath, bool notUnLoadByUnLoadAll)
+void TextGameObject::SetFont(const std::wstring& fontPath, const bool notUnLoadByUnLoadAll)
 {
 	auto fontPtr = RES_FONT_MGR.Get(fontPath, notUnLoadByUnLoadAll);
 	if (!fontPtr)
@@ -63,9 +63,9 @@ void TextGameObject::SetFont(const std::wstring& fontPath, bool notUnLoadByUnLoa
 	}
 	else
 	{
-		this->fontPath = fontPath;
-		this->fontPtr = fontPtr;
-		text.setFont(*(this->fontPtr));
+		std::enable_shared_from_this<TextGameObject>::shared_from_this()->fontPath = fontPath;
+		std::enable_shared_from_this<TextGameObject>::shared_from_this()->fontPtr = fontPtr;
+		text.setFont(*(std::enable_shared_from_this<TextGameObject>::shared_from_this()->fontPtr));
 	}
 }
 
@@ -96,7 +96,7 @@ void TextGameObject::SetTextString(const std::wstring& stringPath, const std::ws
 		return;
 	}
 	
-	this->stringPath = stringPath;
+	std::enable_shared_from_this<TextGameObject>::shared_from_this()->stringPath = stringPath;
 	stringId = id;
 	text.setString((*csvMapPtr)[stringId][index]);
 	SetOrigin(originPreset);

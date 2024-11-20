@@ -1,6 +1,6 @@
 #pragma once
 
-class SpriteGameObject : public GameObject
+class SpriteGameObject : public GameObject, public std::enable_shared_from_this<SpriteGameObject>
 {
 public:
 	SpriteGameObject(const std::wstring& name = L"SpriteGameObject");
@@ -27,8 +27,8 @@ public:
 	virtual void SetRotation(float angle) override;
 	virtual void SetScale(const sf::Vector2f& scale) override;
 
-	virtual bool SetTexture(const std::wstring& texturePath, bool notUnLoadByUnLoadAll = false);
-	virtual void SetSpriteTexture(const std::wstring& texturePath, bool notUnLoadByUnLoadAll = false);
+	virtual bool SetTexture(const std::wstring& texturePath, const bool notUnLoadByUnLoadAll = false);
+	virtual void SetSpriteTexture(const std::wstring& texturePath, const bool notUnLoadByUnLoadAll = false);
 
 	std::shared_ptr<HitBox> GetHitBox() const { return hitbox; }
 	

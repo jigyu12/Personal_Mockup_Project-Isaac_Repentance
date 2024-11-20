@@ -59,3 +59,26 @@ struct AnimationFrame
 	AnimationFrame() : texturePath(L"Invaild path"), textureCoord(0,0,0,0) {}
 	AnimationFrame(const std::wstring& texturePath, const IntegerRect& textureCoord) : texturePath(texturePath), textureCoord(textureCoord) {}
 };
+
+struct AnimationEvent
+{
+	std::wstring animationId;
+	int frameIndex;
+	std::vector<std::function<void()>> vvActions;
+
+	bool operator==(const AnimationEvent& other) const
+	{
+		return (animationId == other.animationId) && (frameIndex == other.frameIndex);
+	}
+};
+
+struct AnimationEventHash
+{
+	std::size_t operator()(const std::pair<std::wstring, int>& pair) const
+	{
+		std::size_t h1 = std::hash<std::wstring>()(pair.first);
+		std::size_t h2 = std::hash<int>()(pair.second);
+
+		return h1 ^ (h2 << 1);
+	}
+};

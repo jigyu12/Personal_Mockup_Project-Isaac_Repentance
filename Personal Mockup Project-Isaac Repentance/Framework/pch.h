@@ -13,6 +13,7 @@
 #include <fstream>
 #include <cmath>
 #include <random>
+#include <functional>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>

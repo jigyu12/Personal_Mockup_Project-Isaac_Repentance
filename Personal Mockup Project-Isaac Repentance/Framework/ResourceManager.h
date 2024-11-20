@@ -14,7 +14,7 @@ public:
 
 	void Release() {}
 
-	std::shared_ptr<T> Get(const std::wstring& path, bool notUnLoadByUnLoadAll = false)
+	std::shared_ptr<T> Get(const std::wstring& path, const bool notUnLoadByUnLoadAll = false)
 	{
 		auto it = resources.find(path);
 		if (it == resources.end() && !Load(path, notUnLoadByUnLoadAll))

@@ -98,7 +98,7 @@ void SoundManager::SetSfxVolume(const float volume)
 	FILE_MGR.SaveByJson(jArrayVol, volumeFilePath);
 }
 
-void SoundManager::PlayBgm(const std::wstring& path, bool loop)
+void SoundManager::PlayBgm(const std::wstring& path, const bool loop)
 {
 	std::shared_ptr<sf::SoundBuffer> buffer = RES_SOUNDBUFFER_MGR.Get(path);
 	if (!buffer)
@@ -136,7 +136,7 @@ void SoundManager::StopBgm()
 	bgm->stop();
 }
 
-void SoundManager::PlaySfx(const std::wstring& path, bool loop)
+void SoundManager::PlaySfx(const std::wstring& path, const bool loop)
 {
 	std::shared_ptr<sf::SoundBuffer> buffer = RES_SOUNDBUFFER_MGR.Get(path);
 	if (!buffer)

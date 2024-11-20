@@ -1,6 +1,6 @@
 #pragma once
 
-class TextGameObject : public GameObject
+class TextGameObject : public GameObject, public std::enable_shared_from_this<TextGameObject>
 {
 public:
 	TextGameObject(const std::wstring& name = L"TextGameObject");
@@ -27,7 +27,7 @@ public:
 	virtual void SetRotation(float angle) override;
 	virtual void SetScale(const sf::Vector2f& scale) override;
 
-	void SetFont(const std::wstring& fontPath, bool notUnLoadByUnLoadAll = false);
+	void SetFont(const std::wstring& fontPath, const bool notUnLoadByUnLoadAll = false);
 	void SetTextSize(const int size);
 	void SetTextColor(const sf::Color& color);
 	void SetTextString(const std::wstring& stringPath, const std::wstring& id, const int index);
