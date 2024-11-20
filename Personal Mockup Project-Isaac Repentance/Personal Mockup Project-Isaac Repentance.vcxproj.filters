@@ -21,11 +21,44 @@
     <Filter Include="소스 파일\01. Managers">
       <UniqueIdentifier>{413bfd4e-e784-4a47-927a-bba024d8c71e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Headers\pch">
+      <UniqueIdentifier>{29bf340d-1f61-4efc-a62c-611cae15d1af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. GameObjects">
+      <UniqueIdentifier>{3a06500a-a185-4200-ba96-0f44e85f0ade}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. GameObjects\GameObject">
+      <UniqueIdentifier>{ce86303f-19df-488e-bfd6-8dc31bdffa92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Headers\HitBoxs">
+      <UniqueIdentifier>{2257143a-39e9-4d94-9470-fb952b3aff3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Headers\HitBoxs\HitBox">
+      <UniqueIdentifier>{7293de91-ce1b-4c90-ae17-cc853a31f455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. GameObjects\GameObject\SpriteGameObject">
+      <UniqueIdentifier>{20620c7e-a744-4e58-9ac9-78215ca464db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. GameObjects\GameObject\TextGameObject">
+      <UniqueIdentifier>{5d8188e7-fe3d-406f-9954-32a11d4af3e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\04. Scenes">
+      <UniqueIdentifier>{6547c2e7-f1fd-45c9-a525-0633a93f7c25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\04. Scenes\Scene">
+      <UniqueIdentifier>{845bc1f9-d128-46ac-b86b-42d7519eebaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Animator">
+      <UniqueIdentifier>{cfe34cb5-ae03-4ccb-992a-dd86ebaa03a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\04. Scenes\Scene\DevScenes">
+      <UniqueIdentifier>{f304888c-a949-426e-9c02-bfb1d7799a5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. Animator\AnimationClip">
+      <UniqueIdentifier>{2a59dadc-db88-4f33-ade3-496010a4b709}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Framework\pch.cpp">
-      <Filter>소스 파일\99. Headers</Filter>
-    </ClCompile>
     <ClCompile Include="Framework\GameMain.cpp">
       <Filter>소스 파일\00. MainGame\Main</Filter>
     </ClCompile>
@@ -35,11 +68,62 @@
     <ClCompile Include="Framework\GameManager.cpp">
       <Filter>소스 파일\01. Managers</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\InputManager.cpp">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\pch.cpp">
+      <Filter>소스 파일\99. Headers\pch</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utils.cpp">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\FileManager.cpp">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Scene.cpp">
+      <Filter>소스 파일\04. Scenes\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SceneManager.cpp">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\GameObject.cpp">
+      <Filter>소스 파일\02. GameObjects\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Variables.cpp">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\HitBoxCircle.cpp">
+      <Filter>소스 파일\99. Headers\HitBoxs</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\HitBoxRect.cpp">
+      <Filter>소스 파일\99. Headers\HitBoxs</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SpriteGameObject.cpp">
+      <Filter>소스 파일\02. GameObjects\GameObject\SpriteGameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\TextGameObject.cpp">
+      <Filter>소스 파일\02. GameObjects\GameObject\TextGameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SceneDev1.cpp">
+      <Filter>소스 파일\04. Scenes\Scene\DevScenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SceneDev2.cpp">
+      <Filter>소스 파일\04. Scenes\Scene\DevScenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Animator.cpp">
+      <Filter>소스 파일\03. Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SoundManager.cpp">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\jsonSerialize.cpp">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\AnimationClip.cpp">
+      <Filter>소스 파일\03. Animator\AnimationClip</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Framework\pch.h">
-      <Filter>소스 파일\99. Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\Game.h">
       <Filter>소스 파일\00. MainGame</Filter>
     </ClInclude>
@@ -48,6 +132,81 @@
     </ClInclude>
     <ClInclude Include="Framework\GameManager.h">
       <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\InputManager.h">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Enums.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Types.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\pch.h">
+      <Filter>소스 파일\99. Headers\pch</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\json.hpp">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utils.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\FileManager.h">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\ResourceManager.h">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Scene.h">
+      <Filter>소스 파일\04. Scenes\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SceneManager.h">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\GameObject.h">
+      <Filter>소스 파일\02. GameObjects\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Variables.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\HitBoxCircle.h">
+      <Filter>소스 파일\99. Headers\HitBoxs</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\HitBoxRect.h">
+      <Filter>소스 파일\99. Headers\HitBoxs</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\HitBox.h">
+      <Filter>소스 파일\99. Headers\HitBoxs\HitBox</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SpriteGameObject.h">
+      <Filter>소스 파일\02. GameObjects\GameObject\SpriteGameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\TextGameObject.h">
+      <Filter>소스 파일\02. GameObjects\GameObject\TextGameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\rapidcsv.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SceneDev1.h">
+      <Filter>소스 파일\04. Scenes\Scene\DevScenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SceneDev2.h">
+      <Filter>소스 파일\04. Scenes\Scene\DevScenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Animator.h">
+      <Filter>소스 파일\03. Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SoundManager.h">
+      <Filter>소스 파일\01. Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\ObjectPool.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\jsonSerialize.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\AnimationClip.h">
+      <Filter>소스 파일\03. Animator\AnimationClip</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

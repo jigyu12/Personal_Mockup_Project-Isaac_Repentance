@@ -19,18 +19,59 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\AnimationClip.cpp" />
+    <ClCompile Include="Framework\Animator.cpp" />
+    <ClCompile Include="Framework\FileManager.cpp" />
     <ClCompile Include="Framework\Game.cpp" />
     <ClCompile Include="Framework\GameMain.cpp" />
     <ClCompile Include="Framework\GameManager.cpp" />
+    <ClCompile Include="Framework\HitBoxRect.cpp" />
+    <ClCompile Include="Framework\InputManager.cpp" />
     <ClCompile Include="Framework\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Framework\Utils.cpp" />
+    <ClCompile Include="Framework\Scene.cpp" />
+    <ClCompile Include="Framework\SceneManager.cpp" />
+    <ClCompile Include="Framework\GameObject.cpp" />
+    <ClCompile Include="Framework\Variables.cpp" />
+    <ClCompile Include="Framework\HitBoxCircle.cpp" />
+    <ClCompile Include="Framework\SpriteGameObject.cpp" />
+    <ClCompile Include="Framework\TextGameObject.cpp" />
+    <ClCompile Include="Framework\SceneDev1.cpp" />
+    <ClCompile Include="Framework\SceneDev2.cpp" />
+    <ClCompile Include="Framework\SoundManager.cpp" />
+    <ClCompile Include="Framework\jsonSerialize.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Framework\AnimationClip.h" />
+    <ClInclude Include="Framework\Animator.h" />
+    <ClInclude Include="Framework\FileManager.h" />
     <ClInclude Include="Framework\Defines.h" />
+    <ClInclude Include="Framework\Enums.h" />
     <ClInclude Include="Framework\Game.h" />
     <ClInclude Include="Framework\GameManager.h" />
+    <ClInclude Include="Framework\InputManager.h" />
+    <ClInclude Include="Framework\json.hpp" />
     <ClInclude Include="Framework\pch.h" />
+    <ClInclude Include="Framework\rapidcsv.h" />
+    <ClInclude Include="Framework\Types.h" />
+    <ClInclude Include="Framework\Utils.h" />
+    <ClInclude Include="Framework\ResourceManager.h" />
+    <ClInclude Include="Framework\Scene.h" />
+    <ClInclude Include="Framework\SceneManager.h" />
+    <ClInclude Include="Framework\GameObject.h" />
+    <ClInclude Include="Framework\Variables.h" />
+    <ClInclude Include="Framework\HitBoxRect.h" />
+    <ClInclude Include="Framework\HitBoxCircle.h" />
+    <ClInclude Include="Framework\HitBox.h" />
+    <ClInclude Include="Framework\SpriteGameObject.h" />
+    <ClInclude Include="Framework\TextGameObject.h" />
+    <ClInclude Include="Framework\SceneDev1.h" />
+    <ClInclude Include="Framework\SceneDev2.h" />
+    <ClInclude Include="Framework\SoundManager.h" />
+    <ClInclude Include="Framework\ObjectPool.h" />
+    <ClInclude Include="Framework\jsonSerialize.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

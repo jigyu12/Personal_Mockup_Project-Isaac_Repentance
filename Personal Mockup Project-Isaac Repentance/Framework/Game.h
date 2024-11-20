@@ -8,10 +8,13 @@ public:
 	void Init(const std::wstring& windowName);
 
 	void TotalUpdate();
-	void Update(float dt);
 
 	void Release();
 
 private:
+	void Update(float deltaTime);
+
 	void Draw(sf::RenderWindow& window);
+
+	void SwitchDebugMod();
 };
