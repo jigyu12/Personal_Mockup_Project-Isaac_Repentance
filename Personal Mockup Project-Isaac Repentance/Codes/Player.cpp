@@ -8,16 +8,18 @@ Player::Player(const std::wstring& name)
 
 void Player::Init()
 {
-	playerAnimationPath.clear();
+	playerBodyAnimationPath.clear();
+	playerHeadAnimationPath.clear();
 
-	playerAnimationPath.push_back(L"Json/IsaacBodyMoveFrontBack_animation.json");
-	playerAnimationPath.push_back(L"Json/IsaacBodyMoveRightSide_animation.json");
-	playerAnimationPath.push_back(L"Json/IsaacHeadAttackBack_animation.json");
-	playerAnimationPath.push_back(L"Json/IsaacHeadAttackFront_animation.json");
-	playerAnimationPath.push_back(L"Json/IsaacHeadAttackRightSide_animation.json");
-	playerAnimationPath.push_back(L"Json/IsaacHeadMoveBack_animation.json");
-	playerAnimationPath.push_back(L"Json/IsaacHeadMoveFront_animation.json");
-	playerAnimationPath.push_back(L"Json/IsaacHeadMoveRightSide_animation.json");
+	playerBodyAnimationPath.push_back(L"Json/IsaacBodyMoveFrontBack_animation.json");
+	playerBodyAnimationPath.push_back(L"Json/IsaacBodyMoveRightSide_animation.json");
+
+	playerHeadAnimationPath.push_back(L"Json/IsaacHeadAttackBack_animation.json");
+	playerHeadAnimationPath.push_back(L"Json/IsaacHeadAttackFront_animation.json");
+	playerHeadAnimationPath.push_back(L"Json/IsaacHeadAttackRightSide_animation.json");
+	playerHeadAnimationPath.push_back(L"Json/IsaacHeadMoveBack_animation.json");
+	playerHeadAnimationPath.push_back(L"Json/IsaacHeadMoveFront_animation.json");
+	playerHeadAnimationPath.push_back(L"Json/IsaacHeadMoveRightSide_animation.json");
 
 	animatorBody.Init();
 	animatorHead.Init();
@@ -30,7 +32,7 @@ void Player::Enter()
 	SetPosition({0.f, 0.f});
 	SetOrigin(Origins::MC);
 
-	std::shared_ptr<AnimationClip> temp = RES_ANICLIP_MGR.Get(playerAnimationPath[0]);
+	std::shared_ptr<AnimationClip> temp = RES_ANICLIP_MGR.Get(playerBodyAnimationPath[0]);
 
 	animatorBody.SetTarget(spritePtr);
 	animatorHead.SetTarget(headSpritePtr);
