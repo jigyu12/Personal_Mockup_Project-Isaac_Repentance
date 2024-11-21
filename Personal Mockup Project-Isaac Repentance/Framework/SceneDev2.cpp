@@ -11,8 +11,6 @@ void SceneDev2::Init()
 	{
 		std::shared_ptr<Room> basicRoom = std::make_shared<Room>();
 		basicRoom->SetName(L"basicRoom");
-		basicRoom->SetSortingLayers(SortingLayers::Background);
-		basicRoom->SetSortingOrderBack(0);
 
 		rooms.push_back(AddGo(basicRoom));
 	}
