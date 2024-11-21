@@ -9,10 +9,14 @@ SceneDev2::SceneDev2()
 void SceneDev2::Init()
 {
 	{
-		std::shared_ptr<Room> basicRoom = std::make_shared<Room>();
-		basicRoom->SetName(L"basicRoom");
+		std::shared_ptr<Room> basicRoom = std::make_shared<Room>(L"basicRoom");
 
 		rooms.push_back(AddGo(basicRoom));
+	}
+	{
+		std::shared_ptr<Player> player = std::make_shared<Player>();
+
+		AddGo(player);
 	}
 	Scene::Init();
 }

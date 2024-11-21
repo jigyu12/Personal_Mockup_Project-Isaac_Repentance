@@ -1,24 +1,24 @@
 #include "pch.h"
 
 TextGameObject::TextGameObject(const std::wstring& name)
-	: GameObject(name), fontPath(L"Invaild fontPath"), stringPath(L"Invaild stringPath"), stringId(L"Invaild stringId")
+	: GameObject(name), fontPath(L"Invaild fontPath"), stringPath(L"Invaild stringPath"), stringId(L"Invaild stringId"), textPtr(std::make_shared<sf::Text>()), fontPtr(nullptr)
 {
 }
 
 sf::FloatRect TextGameObject::GetLocalBounds() const
 {
-	return text.getLocalBounds();
+	return textPtr->getLocalBounds();
 }
 
 sf::FloatRect TextGameObject::GetGlobalBounds() const
 {
-	return text.getGlobalBounds();
+	return textPtr->getGlobalBounds();
 }
 
 void TextGameObject::SetPosition(const sf::Vector2f& position)
 {
 	std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->position = position;
-	text.setPosition(position);
+	textPtr->setPosition(position);
 }
 
 void TextGameObject::SetOrigin(const Origins originPreset)
@@ -30,26 +30,26 @@ void TextGameObject::SetOrigin(const Origins originPreset)
 		return;
 	}
 	std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->originPreset = originPreset;
-	origin = Utils::SetOrigin(text, originPreset);
+	origin = Utils::SetOrigin(*textPtr, originPreset);
 }
 
 void TextGameObject::SetOrigin(const sf::Vector2f& newOrigin)
 {
 	originPreset = Origins::Custom;
 	origin = newOrigin;
-	text.setOrigin(origin);
+	textPtr->setOrigin(origin);
 }
 
 void TextGameObject::SetRotation(float angle)
 {
 	rotation = angle;
-	text.setRotation(angle);
+	textPtr->setRotation(angle);
 }
 
 void TextGameObject::SetScale(const sf::Vector2f& scale)
 {
 	std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->scale = scale;
-	text.setScale(scale);
+	textPtr->setScale(scale);
 }
 
 void TextGameObject::SetFont(const std::wstring& fontPath, const bool notUnLoadByUnLoadAll)
@@ -65,18 +65,18 @@ void TextGameObject::SetFont(const std::wstring& fontPath, const bool notUnLoadB
 	{
 		std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->fontPath = fontPath;
 		std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->fontPtr = fontPtr;
-		text.setFont(*(std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->fontPtr));
+		textPtr->setFont(*(std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->fontPtr));
 	}
 }
 
 void TextGameObject::SetTextSize(const int size)
 {
-	text.setCharacterSize(size);
+	textPtr->setCharacterSize(size);
 }
 
 void TextGameObject::SetTextColor(const sf::Color& color)
 {
-	text.setFillColor(color);
+	textPtr->setFillColor(color);
 }
 
 void TextGameObject::SetTextString(const std::wstring& stringPath, const std::wstring& id, const int index)
@@ -98,6 +98,6 @@ void TextGameObject::SetTextString(const std::wstring& stringPath, const std::ws
 	
 	std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->stringPath = stringPath;
 	stringId = id;
-	text.setString((*csvMapPtr)[stringId][index]);
+	textPtr->setString((*csvMapPtr)[stringId][index]);
 	SetOrigin(originPreset);
 }

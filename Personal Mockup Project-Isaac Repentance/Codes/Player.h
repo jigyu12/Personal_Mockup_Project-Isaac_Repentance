@@ -20,14 +20,21 @@ public:
 	void Exit() override;
 	void Release() override;
 
-
+	void SetPosition(const sf::Vector2f& position) override;
+	void SetOrigin(const Origins originPreset) override;
+	void SetOrigin(const sf::Vector2f& newOrigin) override;
+	void SetRotation(float angle) override;
+	void SetScale(const sf::Vector2f& scale) override;
 
 protected:
-	sf::Texture textureHead;
-	sf::Sprite head;
+	std::shared_ptr<sf::Texture> headTexturePtr;
+	std::shared_ptr<sf::Sprite> headSpritePtr;
 
-	Animator animator;
+	std::vector<std::wstring> playerAnimationPath;
 
 	sf::Vector2f direction;
 	float speed;
+
+	Animator animatorBody;
+	Animator animatorHead;
 };

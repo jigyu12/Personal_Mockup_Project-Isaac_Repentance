@@ -37,6 +37,6 @@ protected:
 	std::wstring stringPath;
 	std::wstring stringId;
 
-	sf::Text text;
+	std::shared_ptr<sf::Text> textPtr;
 	std::shared_ptr<sf::Font> fontPtr;
 };

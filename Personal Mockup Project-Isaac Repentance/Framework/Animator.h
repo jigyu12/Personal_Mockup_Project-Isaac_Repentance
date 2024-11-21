@@ -17,7 +17,7 @@ public:
 	const std::wstring& GetCurrentClipId() const;
 	bool IsPlaying() const { return isPlaying; }
 	
-	void SetTarget(std::shared_ptr<sf::Sprite> target) { shared_from_this()->target = target; }
+	void SetTarget(std::shared_ptr<sf::Sprite> targetPtr) { target = targetPtr; }
 	void SetAnimationFrame(const AnimationFrame& animationFrame);
 	void SetAnimationSpeed(const float animationSpeed);
 

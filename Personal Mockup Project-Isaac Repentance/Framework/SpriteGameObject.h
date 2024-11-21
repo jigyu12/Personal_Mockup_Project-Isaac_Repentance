@@ -35,7 +35,7 @@ public:
 protected:
 	std::wstring texturePath;
 
-	sf::Sprite sprite;
+	std::shared_ptr<sf::Sprite> spritePtr;
 	std::shared_ptr<sf::Texture> spriteTexturePtr;
 
 	std::shared_ptr<HitBox> hitbox;
