@@ -27,4 +27,7 @@ protected:
 	sf::Sprite head;
 
 	Animator animator;
+
+	sf::Vector2f direction;
+	float speed;
 };
