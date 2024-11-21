@@ -7,6 +7,8 @@ HitBoxRect::HitBoxRect(const sf::Vector2f& rectSize)
 	hitBox.setOutlineThickness(1.f);
 
 	hitBox.setSize(rectSize);
+
+	Utils::SetOrigin(hitBox, Origins::MC);
 }
 
 void HitBoxRect::Draw(sf::RenderWindow& window)
@@ -17,7 +19,7 @@ void HitBoxRect::Draw(sf::RenderWindow& window)
 
 void HitBoxRect::UpdateHitBox(const sf::Transformable& body)
 {
-	hitBox.setOrigin(body.getOrigin());
+	hitBox.setOrigin({ body.getOrigin().x - (hitBox.getSize().x /2.f),  body.getOrigin().y - (hitBox.getSize().y / 2.f) });
 	hitBox.setPosition(body.getPosition());
 	hitBox.setScale(body.getScale());
 }

@@ -37,7 +37,7 @@ void Player::Enter()
 	animatorBody.SetTarget(spritePtr);
 	animatorHead.SetTarget(headSpritePtr);
 
-	hitbox = std::make_shared<HitBoxCircle>(10.f);
+	hitbox = std::make_shared<HitBoxCircle>(50.f);
 }
 
 void Player::Update(float deltaTime)
