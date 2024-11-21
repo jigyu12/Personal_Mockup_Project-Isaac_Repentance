@@ -15,22 +15,22 @@ sf::FloatRect TextGameObject::GetGlobalBounds() const
 	return textPtr->getGlobalBounds();
 }
 
-void TextGameObject::SetPosition(const sf::Vector2f& position)
+void TextGameObject::SetPosition(const sf::Vector2f& pos)
 {
-	std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->position = position;
+	position = pos;
 	textPtr->setPosition(position);
 }
 
-void TextGameObject::SetOrigin(const Origins originPreset)
+void TextGameObject::SetOrigin(const Origins preset)
 {
-	if (originPreset == Origins::Custom)
+	if (preset == Origins::Custom)
 	{
 		std::wcerr << L"Cannot assign custom originPreset for text." << std::endl;
 
 		return;
 	}
-	std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->originPreset = originPreset;
-	origin = Utils::SetOrigin(*textPtr, originPreset);
+	originPreset = preset;
+	origin = Utils::SetOrigin(*textPtr, preset);
 }
 
 void TextGameObject::SetOrigin(const sf::Vector2f& newOrigin)
@@ -46,26 +46,26 @@ void TextGameObject::SetRotation(float angle)
 	textPtr->setRotation(angle);
 }
 
-void TextGameObject::SetScale(const sf::Vector2f& scale)
+void TextGameObject::SetScale(const sf::Vector2f& setScale)
 {
-	std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->scale = scale;
-	textPtr->setScale(scale);
+	scale = setScale;
+	textPtr->setScale(setScale);
 }
 
-void TextGameObject::SetFont(const std::wstring& fontPath, const bool notUnLoadByUnLoadAll)
+void TextGameObject::SetFont(const std::wstring& setFontPath, const bool notUnLoadByUnLoadAll)
 {
-	auto fontPtr = RES_FONT_MGR.Get(fontPath, notUnLoadByUnLoadAll);
-	if (!fontPtr)
+	auto setFontPtr = RES_FONT_MGR.Get(setFontPath, notUnLoadByUnLoadAll);
+	if (!setFontPtr)
 	{
-		std::wcerr << L"fontPtr was nullptr." << std::endl;
+		std::wcerr << L"setFontPtr was nullptr." << std::endl;
 
 		return;
 	}
 	else
 	{
-		std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->fontPath = fontPath;
-		std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->fontPtr = fontPtr;
-		textPtr->setFont(*(std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->fontPtr));
+		fontPath = setFontPath;
+		fontPtr = setFontPtr;
+		textPtr->setFont(*fontPtr);
 	}
 }
 
@@ -79,9 +79,9 @@ void TextGameObject::SetTextColor(const sf::Color& color)
 	textPtr->setFillColor(color);
 }
 
-void TextGameObject::SetTextString(const std::wstring& stringPath, const std::wstring& id, const int index)
+void TextGameObject::SetTextString(const std::wstring& setStringPath, const std::wstring& id, const int index)
 {
-	auto csvMapPtr = FILE_MGR.LoadByCsv(stringPath);
+	auto csvMapPtr = FILE_MGR.LoadByCsv(setStringPath);
 	if (!csvMapPtr)
 	{
 		std::wcerr << L"csvMapPtr was nullptr." << std::endl;
@@ -96,7 +96,7 @@ void TextGameObject::SetTextString(const std::wstring& stringPath, const std::ws
 		return;
 	}
 	
-	std::dynamic_pointer_cast<TextGameObject>(shared_from_this())->stringPath = stringPath;
+	stringPath = setStringPath;
 	stringId = id;
 	textPtr->setString((*csvMapPtr)[stringId][index]);
 	SetOrigin(originPreset);

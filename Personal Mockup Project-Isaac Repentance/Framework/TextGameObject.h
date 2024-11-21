@@ -21,16 +21,16 @@ public:
 	virtual sf::FloatRect GetLocalBounds() const override;
 	virtual sf::FloatRect GetGlobalBounds() const override;
 
-	virtual void SetPosition(const sf::Vector2f& position) override;
-	virtual void SetOrigin(const Origins originPreset) override;
+	virtual void SetPosition(const sf::Vector2f& pos) override;
+	virtual void SetOrigin(const Origins preset) override;
 	virtual void SetOrigin(const sf::Vector2f& newOrigin) override;
 	virtual void SetRotation(float angle) override;
-	virtual void SetScale(const sf::Vector2f& scale) override;
+	virtual void SetScale(const sf::Vector2f& setScale) override;
 
-	void SetFont(const std::wstring& fontPath, const bool notUnLoadByUnLoadAll = false);
+	void SetFont(const std::wstring& setFontPath, const bool notUnLoadByUnLoadAll = false);
 	void SetTextSize(const int size);
 	void SetTextColor(const sf::Color& color);
-	void SetTextString(const std::wstring& stringPath, const std::wstring& id, const int index);
+	void SetTextString(const std::wstring& setStringPath, const std::wstring& id, const int index);
 
 protected:
 	std::wstring fontPath;

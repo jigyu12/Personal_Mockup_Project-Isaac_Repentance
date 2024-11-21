@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Framework/SpriteGameObject.h"
+#include "Player.h"
 
 class Room : public SpriteGameObject
 {

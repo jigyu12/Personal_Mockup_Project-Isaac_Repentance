@@ -15,22 +15,22 @@ sf::FloatRect SpriteGameObject::GetGlobalBounds() const
 	return spritePtr->getGlobalBounds();
 }
 
-void SpriteGameObject::SetPosition(const sf::Vector2f& position)
+void SpriteGameObject::SetPosition(const sf::Vector2f& pos)
 {
-	std::dynamic_pointer_cast<SpriteGameObject>(shared_from_this())->position = position;
+	position = pos;
 	spritePtr->setPosition(position);
 }
 
-void SpriteGameObject::SetOrigin(const Origins originPreset)
+void SpriteGameObject::SetOrigin(const Origins preset)
 {
-	if (originPreset == Origins::Custom)
+	if (preset == Origins::Custom)
 	{
 		std::wcerr << L"Cannot assign custom originPreset for sprite." << std::endl;
 		
 		return;
 	}
-	std::dynamic_pointer_cast<SpriteGameObject>(shared_from_this())->originPreset = originPreset;
-	origin = Utils::SetOrigin(*spritePtr, originPreset);
+	originPreset = preset;
+	origin = Utils::SetOrigin(*spritePtr, preset);
 }
 
 void SpriteGameObject::SetOrigin(const sf::Vector2f& newOrigin)
@@ -46,15 +46,15 @@ void SpriteGameObject::SetRotation(float angle)
 	spritePtr->setRotation(angle);
 }
 
-void SpriteGameObject::SetScale(const sf::Vector2f& scale)
+void SpriteGameObject::SetScale(const sf::Vector2f& setScale)
 {
-	std::dynamic_pointer_cast<SpriteGameObject>(shared_from_this())->scale = scale;
+	scale = setScale;
 	spritePtr->setScale(scale);
 }
 
-bool SpriteGameObject::SetTexture(const std::wstring& texturePath, const bool notUnLoadByUnLoadAll)
+bool SpriteGameObject::SetTexture(const std::wstring& setTexturePath, const bool notUnLoadByUnLoadAll)
 {
-	auto texturePtr = RES_TEXTURE_MGR.Get(texturePath, notUnLoadByUnLoadAll);
+	auto texturePtr = RES_TEXTURE_MGR.Get(setTexturePath, notUnLoadByUnLoadAll);
 	if (!texturePtr)
 	{
 		std::wcerr << L"texturePtr was nullptr." << std::endl;
@@ -63,7 +63,7 @@ bool SpriteGameObject::SetTexture(const std::wstring& texturePath, const bool no
 	}
 	else
 	{
-		std::dynamic_pointer_cast<SpriteGameObject>(shared_from_this())->texturePath = texturePath;
+		texturePath = setTexturePath;
 		spriteTexturePtr = texturePtr;
 
 		return true;

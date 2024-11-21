@@ -5,9 +5,9 @@ const std::wstring Animator::none = L"Invaild Id";
 void Animator::Init()
 {
 	ClearAnimationEvent();
-	while (!playAniClipIdQueue.empty())
+	while (!playAniClipQueue.empty())
 	{
-		playAniClipIdQueue.pop();
+		playAniClipQueue.pop();
 	}
 
 	currentAnimationClip = nullptr; 
@@ -38,11 +38,11 @@ void Animator::Update(float deltaTime)
 
 	if (currentFrame == checkFrame)
 	{
-		if (!playAniClipIdQueue.empty())
+		if (!playAniClipQueue.empty())
 		{
-			std::wstring clipId = playAniClipIdQueue.front();
-			Play(clipId, false);
-			playAniClipIdQueue.pop();
+			auto clip = playAniClipQueue.front();
+			Play(clip, false);
+			playAniClipQueue.pop();
 
 			return;
 		}
@@ -88,10 +88,10 @@ void Animator::SetAnimationFrame(const AnimationFrame& animationFrame)
 	target->setTextureRect({ animationFrame.textureCoord.left, animationFrame.textureCoord.top, animationFrame.textureCoord.width, animationFrame.textureCoord.height });
 }
 
-void Animator::SetAnimationSpeed(const float animationSpeed)
+void Animator::SetAnimationSpeed(const float setAnimationSpeed)
 {
-	shared_from_this()->animationSpeed = animationSpeed;
-	checkFrame = shared_from_this()->animationSpeed > 0.f ? totalFrame : -1;
+	animationSpeed = setAnimationSpeed;
+	checkFrame = animationSpeed > 0.f ? totalFrame : -1;
 }
 
 void Animator::AddvvAnimationEvent(const std::wstring& animationId, const int frameIndex, const std::function<void()>& vvAction)
@@ -105,18 +105,17 @@ void Animator::AddvvAnimationEvent(const std::wstring& animationId, const int fr
 	animationEvents[key].vvActions.push_back(vvAction);
 }
 
-void Animator::Play(const std::wstring& animationClipPath, const bool clearQueue)
+void Animator::Play(std::shared_ptr<AnimationClip> animationClipPtr, const bool clearQueue)
 {
-	auto animationClipPtr = RES_ANICLIP_MGR.Get(animationClipPath);
 	if (animationClipPtr)
 	{
 		try
 		{
 			if (clearQueue)
 			{
-				while (!playAniClipIdQueue.empty())
+				while (!playAniClipQueue.empty())
 				{
-					playAniClipIdQueue.pop();
+					playAniClipQueue.pop();
 				}
 			}
 
@@ -147,9 +146,9 @@ void Animator::Play(const std::wstring& animationClipPath, const bool clearQueue
 	}
 }
 
-void Animator::PushPlayQueue(const std::wstring& animationClipId)
+void Animator::PushPlayQueue(const std::shared_ptr<AnimationClip>& animationClip)
 {
-	playAniClipIdQueue.push(animationClipId);
+	playAniClipQueue.push(animationClip);
 }
 
 void Animator::Stop()

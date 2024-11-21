@@ -66,6 +66,25 @@ void Room::Update(float deltaTime)
 
 void Room::FixedUpdate(float deltaTime)
 {
+    auto playerList = SCENE_MGR.GetCurrentScene()->FindAllGoByName(L"Player");
+    auto player = std::dynamic_pointer_cast<Player>(playerList->front());
+    auto pHitBoxrect = std::dynamic_pointer_cast<HitBoxCircle>(player->GetHitBox())->GetHitBoxGlobalRect();
+    if (pHitBoxrect.left < movableBoundRect.left)
+    {
+        player->SetPosition({ movableBoundRect.left + pHitBoxrect.width / 2.f , player->GetPosition().y});
+    }
+    if (pHitBoxrect.top < movableBoundRect.top)
+    {
+        player->SetPosition({ player->GetPosition().x , movableBoundRect.top + pHitBoxrect.height / 2.f });
+    }
+    if (pHitBoxrect.left < movableBoundRect.left)
+    {
+        player->SetPosition({ movableBoundRect.left + pHitBoxrect.width / 2.f , player->GetPosition().y });
+    }
+    if (pHitBoxrect.left < movableBoundRect.left)
+    {
+        player->SetPosition({ movableBoundRect.left + pHitBoxrect.width / 2.f , player->GetPosition().y });
+    }
 }
 
 void Room::Draw(sf::RenderWindow& window)

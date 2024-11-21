@@ -33,9 +33,34 @@ protected:
 	std::shared_ptr<sf::Texture> headTexturePtr;
 	std::shared_ptr<sf::Sprite> headSpritePtr;
 
-	sf::Vector2f direction;
+	sf::Vector2f moveDirection;
+	sf::Vector2f attackDirection;
 	float speed;
 
 	Animator animatorBody;
 	Animator animatorHead;
+
+	struct BodyAniClipInfo
+	{
+		std::wstring idle;
+		std::wstring move;
+		bool flipX = false;
+		sf::Vector2f dirVector;
+	};
+
+	struct HeadAniClipInfo
+	{
+		std::wstring idle;
+		std::wstring attack;
+		bool flipX = false;
+		sf::Vector2f dirVector;
+	};
+
+	std::map<std::wstring, std::shared_ptr<AnimationClip>> bodyAniClipMap;
+	std::vector<BodyAniClipInfo> bodyAniClipInfos;
+	std::shared_ptr<BodyAniClipInfo> currentBodyAniClipInfo;
+
+	std::map<std::wstring, std::shared_ptr<AnimationClip>> headAniClipMap;
+	std::vector<HeadAniClipInfo> headAniClipInfos;
+	std::shared_ptr<HeadAniClipInfo> currentHeadAniClipInfo;
 };

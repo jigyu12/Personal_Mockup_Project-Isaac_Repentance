@@ -1,6 +1,6 @@
 #pragma once
 
-class Animator : public std::enable_shared_from_this<Animator>
+class Animator
 {
 public:
 	Animator() : currentAnimationClip(nullptr), target(nullptr), isPlaying(false), currentFrame(0), totalFrame(0), checkFrame(0), frameDuration(0.f), accumTime(0.f), animationSpeed(1.f) {}
@@ -19,20 +19,20 @@ public:
 	
 	void SetTarget(std::shared_ptr<sf::Sprite> targetPtr) { target = targetPtr; }
 	void SetAnimationFrame(const AnimationFrame& animationFrame);
-	void SetAnimationSpeed(const float animationSpeed);
+	void SetAnimationSpeed(const float setAnimationSpeed);
 
 	void AddvvAnimationEvent(const std::wstring& animationId, const int frameIndex, const std::function<void()>& vvAction);
 	void ClearAnimationEvent() { animationEvents.clear(); }
 
-	void Play(const std::wstring& animationClipId, const bool clearQueue = true);
-	void PushPlayQueue(const std::wstring& animationClipId);
+	void Play(std::shared_ptr<AnimationClip> animationClipPtr, const bool clearQueue = true);
+	void PushPlayQueue(const std::shared_ptr<AnimationClip>& animationClip);
 	void Stop();
 
 private:
 	static const std::wstring none;
 
 	std::unordered_map<std::pair<std::wstring, int>, AnimationEvent, AnimationEventHash> animationEvents;
-	std::queue<std::wstring> playAniClipIdQueue;
+	std::queue<std::shared_ptr<AnimationClip>> playAniClipQueue;
 
 	std::shared_ptr<AnimationClip> currentAnimationClip;
 	std::shared_ptr<sf::Sprite> target;

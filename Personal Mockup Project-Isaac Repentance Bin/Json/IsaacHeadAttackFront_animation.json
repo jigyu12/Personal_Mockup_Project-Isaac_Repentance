@@ -1,10 +1,10 @@
 {
-    "fps": 10,
+    "fps": 5,
     "frames": [
         {
             "textureCoord": {
                 "height": 32,
-                "left": 0,
+                "left": 32,
                 "top": 0,
                 "width": 32
             },
@@ -52,7 +52,7 @@
         {
             "textureCoord": {
                 "height": 32,
-                "left": 32,
+                "left": 0,
                 "top": 0,
                 "width": 32
             },

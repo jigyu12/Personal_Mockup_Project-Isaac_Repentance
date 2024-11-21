@@ -49,11 +49,11 @@
         "keyMap": [
             [
                 22,
-                true
+                false
             ],
             [
                 18,
-                false
+                true
             ]
         ],
         "sensitivity": 10.0,
@@ -113,11 +113,11 @@
         "keyMap": [
             [
                 73,
-                true
+                false
             ],
             [
                 74,
-                false
+                true
             ]
         ],
         "sensitivity": 10.0,

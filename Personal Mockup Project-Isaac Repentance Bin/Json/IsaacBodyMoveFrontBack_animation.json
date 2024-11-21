@@ -100,7 +100,7 @@
         {
             "textureCoord": {
                 "height": 32,
-                "left": 256,
+                "left": 0,
                 "top": 32,
                 "width": 32
             },
@@ -148,7 +148,7 @@
         {
             "textureCoord": {
                 "height": 32,
-                "left": 288,
+                "left": 32,
                 "top": 32,
                 "width": 32
             },
@@ -196,7 +196,7 @@
         {
             "textureCoord": {
                 "height": 32,
-                "left": 320,
+                "left": 64,
                 "top": 32,
                 "width": 32
             },
@@ -244,7 +244,7 @@
         {
             "textureCoord": {
                 "height": 32,
-                "left": 352,
+                "left": 96,
                 "top": 32,
                 "width": 32
             },
@@ -292,7 +292,7 @@
         {
             "textureCoord": {
                 "height": 32,
-                "left": 384,
+                "left": 128,
                 "top": 32,
                 "width": 32
             },
@@ -340,7 +340,7 @@
         {
             "textureCoord": {
                 "height": 32,
-                "left": 416,
+                "left": 160,
                 "top": 32,
                 "width": 32
             },
@@ -388,7 +388,7 @@
         {
             "textureCoord": {
                 "height": 32,
-                "left": 448,
+                "left": 192,
                 "top": 32,
                 "width": 32
             },
@@ -436,7 +436,7 @@
         {
             "textureCoord": {
                 "height": 32,
-                "left": 480,
+                "left": 224,
                 "top": 32,
                 "width": 32
             },

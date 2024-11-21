@@ -10,7 +10,8 @@ public:
 	void SetOutlineColor(const sf::Color& color) override { hitBox.setOutlineColor(color); }
 
 	sf::RectangleShape GetHitBox() const { return hitBox; }
-	
+	sf::FloatRect GetHitBoxGlobalRect() const { return hitBox.getGlobalBounds(); }
+
 protected:
 	sf::RectangleShape hitBox;
 };
