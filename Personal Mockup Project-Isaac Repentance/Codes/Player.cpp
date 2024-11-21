@@ -27,7 +27,6 @@ void Player::Enter()
 	SetSortingLayers(SortingLayers::Foreground);
 
 	direction = { 0.f, 0.f };
-	speed = 400.f;
 
 	animatorBody.Init();
 	animatorHead.Init();
@@ -40,7 +39,8 @@ void Player::Enter()
 	animatorBody.SetTarget(spritePtr);
 	animatorHead.SetTarget(headSpritePtr);
 
-	hitbox = std::make_shared<HitBoxCircle>(50.f);
+	hitbox = std::make_shared<HitBoxCircle>(16.f);
+	//hitbox = std::make_shared<HitBoxCircle>(spritePtr->getGlobalBounds().width / 2.f);
 }
 
 void Player::Update(float deltaTime)
