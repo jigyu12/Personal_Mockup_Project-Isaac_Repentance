@@ -13,9 +13,10 @@ void Room::Init()
 
 void Room::Enter()
 {
-    isDrawspriteControl = false;
     SetSortingLayers(SortingLayers::Background);
     SetSortingOrderBack(0);
+
+    isDrawspriteControl = false;
 
     if (auto csvRoomPathMap = FILE_MGR.LoadByCsv(roomTextureCsvPath))
     {

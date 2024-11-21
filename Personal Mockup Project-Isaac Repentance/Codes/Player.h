@@ -27,11 +27,11 @@ public:
 	void SetScale(const sf::Vector2f& scale) override;
 
 protected:
-	std::shared_ptr<sf::Texture> headTexturePtr;
-	std::shared_ptr<sf::Sprite> headSpritePtr;
-
 	std::vector<std::wstring> playerBodyAnimationPath;
 	std::vector<std::wstring> playerHeadAnimationPath;
+
+	std::shared_ptr<sf::Texture> headTexturePtr;
+	std::shared_ptr<sf::Sprite> headSpritePtr;
 
 	sf::Vector2f direction;
 	float speed;

@@ -20,14 +20,17 @@ void Player::Init()
 	playerHeadAnimationPath.push_back(L"Json/IsaacHeadMoveBack_animation.json");
 	playerHeadAnimationPath.push_back(L"Json/IsaacHeadMoveFront_animation.json");
 	playerHeadAnimationPath.push_back(L"Json/IsaacHeadMoveRightSide_animation.json");
-
-	animatorBody.Init();
-	animatorHead.Init();
 }
 
 void Player::Enter()
 {
 	SetSortingLayers(SortingLayers::Foreground);
+
+	direction = { 0.f, 0.f };
+	speed = 400.f;
+
+	animatorBody.Init();
+	animatorHead.Init();
 
 	SetPosition({0.f, 0.f});
 	SetOrigin(Origins::MC);
