@@ -3,6 +3,9 @@
 using json = nlohmann::json;
 using csv = rapidcsv::Document;
 
+#define ABS(X) ((X) < 0 ? -(X) : (X))
+#define EPSILON 0.000001
+
 #define DECLARE_SINGLETON(classname)                    \
 public:													\
 	static classname& GetInstance()						\
