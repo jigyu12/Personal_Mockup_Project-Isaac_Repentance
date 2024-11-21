@@ -19,7 +19,6 @@ void HitBoxRect::Draw(sf::RenderWindow& window)
 
 void HitBoxRect::UpdateHitBox(const sf::Transformable& body)
 {
-	hitBox.setOrigin({ body.getOrigin().x - (hitBox.getSize().x /2.f),  body.getOrigin().y - (hitBox.getSize().y / 2.f) });
 	hitBox.setPosition(body.getPosition());
 	hitBox.setScale(body.getScale());
 }
