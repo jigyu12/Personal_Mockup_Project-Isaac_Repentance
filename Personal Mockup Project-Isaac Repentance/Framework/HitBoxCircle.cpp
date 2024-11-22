@@ -7,6 +7,8 @@ HitBoxCircle::HitBoxCircle(const float radius)
 	hitBox.setOutlineThickness(1.f);
 
 	hitBox.setRadius(radius);
+
+	hitBox.setOrigin({radius, radius});
 }
 
 void HitBoxCircle::Draw(sf::RenderWindow& window)
@@ -17,7 +19,6 @@ void HitBoxCircle::Draw(sf::RenderWindow& window)
 
 void HitBoxCircle::UpdateHitBox(const sf::Transformable& body)
 {
-	hitBox.setOrigin(body.getOrigin());
 	hitBox.setPosition(body.getPosition());
 	hitBox.setScale(body.getScale());
 }

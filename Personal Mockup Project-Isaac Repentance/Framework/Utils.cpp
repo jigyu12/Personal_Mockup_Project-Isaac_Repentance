@@ -72,6 +72,24 @@ float Utils::Distance(const sf::Vector2f& vector1, const sf::Vector2f& vector2)
     return Magnitude(vector2 - vector1);
 }
 
+void Utils::Normalize(sf::Vector2f& vector)
+{
+    float magnitude = Magnitude(vector);
+
+    if (ABS(magnitude - 1.f) > EPSILON)
+        vector /= magnitude;
+}
+
+sf::Vector2f Utils::GetNormalized(const sf::Vector2f& vector)
+{
+    float magnitude = Magnitude(vector);
+
+    if (ABS(magnitude - 1.f) < EPSILON)
+        return vector;
+
+    return vector / magnitude;
+}
+
 bool Utils::CheckCollision(const std::shared_ptr<HitBox> hitBox1, const std::shared_ptr<HitBox> hitBox2)
 {
     // 사각형 vs 사각형 충돌

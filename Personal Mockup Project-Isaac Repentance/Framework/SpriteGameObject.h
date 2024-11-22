@@ -21,13 +21,13 @@ public:
 	virtual sf::FloatRect GetLocalBounds() const override;
 	virtual sf::FloatRect GetGlobalBounds() const override;
 	
-	virtual void SetPosition(const sf::Vector2f& position) override;
-	virtual void SetOrigin(const Origins originPreset) override;
+	virtual void SetPosition(const sf::Vector2f& pos) override;
+	virtual void SetOrigin(const Origins preset) override;
 	virtual void SetOrigin(const sf::Vector2f& newOrigin) override;
 	virtual void SetRotation(float angle) override;
-	virtual void SetScale(const sf::Vector2f& scale) override;
+	virtual void SetScale(const sf::Vector2f& setScale) override;
 
-	virtual bool SetTexture(const std::wstring& texturePath, const bool notUnLoadByUnLoadAll = false);
+	virtual bool SetTexture(const std::wstring& setTexturePath, const bool notUnLoadByUnLoadAll = false);
 	virtual void SetSpriteTexture(const std::wstring& texturePath, const bool notUnLoadByUnLoadAll = false);
 
 	std::shared_ptr<HitBox> GetHitBox() const { return hitbox; }
@@ -35,7 +35,7 @@ public:
 protected:
 	std::wstring texturePath;
 
-	sf::Sprite sprite;
+	std::shared_ptr<sf::Sprite> spritePtr;
 	std::shared_ptr<sf::Texture> spriteTexturePtr;
 
 	std::shared_ptr<HitBox> hitbox;

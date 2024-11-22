@@ -1,6 +1,6 @@
 #pragma once
 
-class AnimationClip : public std::enable_shared_from_this<AnimationClip>
+class AnimationClip
 {
 public:
 	AnimationClip() : id(L"Invaild Id"), loopType(AnimationLoopTypes::None), fps(0) {}
@@ -13,10 +13,10 @@ public:
 	int GetFps() const { return fps; }
 	const std::vector<AnimationFrame>& GetFrames() const { return frames; }
 
-	void SetId(const std::wstring& id) { shared_from_this()->id = id; }
-	void SetLoopType(const AnimationLoopTypes loopType) { shared_from_this()->loopType = loopType; }
-	void SetFps(const int fps) { shared_from_this()->fps = fps; }
-	void SetFrames(const std::vector<AnimationFrame>& frames) { shared_from_this()->frames = frames; }
+	void SetId(const std::wstring& setId) { id = setId; }
+	void SetLoopType(const AnimationLoopTypes setLoopType) { loopType = setLoopType; }
+	void SetFps(const int setFps) { fps = setFps; }
+	void SetFrames(const std::vector<AnimationFrame>& setFrames) { frames = setFrames; }
 
 private:
 	std::wstring id;

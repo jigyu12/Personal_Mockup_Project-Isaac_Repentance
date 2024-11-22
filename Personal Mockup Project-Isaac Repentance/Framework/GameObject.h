@@ -1,6 +1,6 @@
 #pragma once
 
-class GameObject : public std::enable_shared_from_this<GameObject>
+class GameObject
 {
 public:
 	GameObject(const std::wstring& name = L"GameObject");
@@ -37,18 +37,13 @@ public:
 	int GetsortingOrderUi() const { return sortingOrderUi; }
 	int GetsortingOrderBack() const { return sortingOrderBack; }
 
-	void SetName(const std::wstring& name) { shared_from_this()->name = name; }
-	void SetSortingLayers(const SortingLayers sortingLayer) { shared_from_this()->sortingLayer = sortingLayer; }
-	void SetSortingOrderUi(const int sortingOrderUi) { shared_from_this()->sortingOrderUi = sortingOrderUi; }
-	void SetSortingOrderBack(const int sortingOrderBack) { shared_from_this()->sortingOrderBack = sortingOrderBack; }
+	void SetName(const std::wstring& setName) { name = setName; }
+	void SetSortingLayers(const SortingLayers setSortingLayer) { sortingLayer = setSortingLayer; }
+	void SetSortingOrderUi(const int setSortingOrderUi) { sortingOrderUi = setSortingOrderUi; }
+	void SetSortingOrderBack(const int setSortingOrderBack) { sortingOrderBack = setSortingOrderBack; }
 
 	bool IsActive() const { return active; }
 	void SetActive(const bool isActive) { active = isActive; }
-
-	std::shared_ptr<GameObject> getSharedThis()
-	{
-		return shared_from_this();
-	}
 
 protected:
 	std::wstring name;

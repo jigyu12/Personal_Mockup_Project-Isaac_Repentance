@@ -1,5 +1,5 @@
 {
-    "fps": 10,
+    "fps": 20,
     "frames": [
         {
             "textureCoord": {
@@ -388,8 +388,8 @@
         {
             "textureCoord": {
                 "height": 32,
-                "left": 256,
-                "top": 64,
+                "left": 0,
+                "top": 96,
                 "width": 32
             },
             "texturePath": [
@@ -436,7 +436,7 @@
         {
             "textureCoord": {
                 "height": 32,
-                "left": 288,
+                "left": 32,
                 "top": 96,
                 "width": 32
             },

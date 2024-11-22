@@ -20,7 +20,9 @@ public:
 	static float Clamp(const float value, const float min, const float max);
 	static float Magnitude(const sf::Vector2f& vector);
 	static float Distance(const sf::Vector2f& vector1, const sf::Vector2f& vector2);
-	
+	static void Normalize(sf::Vector2f& vector);
+	static sf::Vector2f GetNormalized(const sf::Vector2f& vector);
+
 	static bool CheckCollision(const std::shared_ptr<HitBox> hitBox1, const std::shared_ptr<HitBox> hitBox2);
 	static bool CheckRectCircleCollision(const std::shared_ptr<HitBoxRect> rect, const std::shared_ptr<HitBoxCircle> circle);
 

@@ -23,12 +23,12 @@ public:
 	void SetIsDrawspriteControl(const bool isDraw) { isDrawspriteControl = isDraw; }
 
 protected:
-	sf::Sprite sprite2;
-	sf::Sprite sprite3;
-	sf::Sprite sprite4;
+	std::shared_ptr<sf::Sprite> sprite2Ptr;
+	std::shared_ptr<sf::Sprite> sprite3Ptr;
+	std::shared_ptr<sf::Sprite> sprite4Ptr;
 
-	sf::Texture spriteControlTexture;
-	sf::Sprite spriteControl;
+	std::shared_ptr<sf::Texture> spriteControlTexturePtr;
+	std::shared_ptr<sf::Sprite> spriteControlPtr;
 
 	sf::FloatRect movableBoundRect;
 

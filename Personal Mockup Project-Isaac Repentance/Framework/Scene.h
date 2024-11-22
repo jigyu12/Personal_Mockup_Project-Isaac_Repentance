@@ -32,6 +32,8 @@ public:
 	void ApplyRemoveGoList();
 
 	SceneIds GetSceneId() const { return sceneId; }
+	std::list<std::shared_ptr<GameObject>>& GetAddGameObjects() { return addGameObjects; }
+	std::list<std::shared_ptr<GameObject>>& GetRemoveGameObjects() { return removeGameObjects; }
 
 protected:
 	const SceneIds sceneId;

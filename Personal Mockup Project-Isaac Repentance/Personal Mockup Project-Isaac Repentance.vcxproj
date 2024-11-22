@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Codes\Bullet.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">../Framework/pch.h</PrecompiledHeaderFile>
+    </ClCompile>
     <ClCompile Include="Framework\AnimationClip.cpp" />
     <ClCompile Include="Framework\Animator.cpp" />
     <ClCompile Include="Framework\FileManager.cpp" />
@@ -45,8 +48,12 @@
     <ClCompile Include="Codes\Room.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">../Framework/pch.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="Codes\Player.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">../Framework/pch.h</PrecompiledHeaderFile>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Codes\Bullet.h" />
     <ClInclude Include="Framework\AnimationClip.h" />
     <ClInclude Include="Framework\Animator.h" />
     <ClInclude Include="Framework\FileManager.h" />
@@ -76,6 +83,7 @@
     <ClInclude Include="Framework\ObjectPool.h" />
     <ClInclude Include="Framework\jsonSerialize.h" />
     <ClInclude Include="Codes\Room.h" />
+    <ClInclude Include="Codes\Player.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
