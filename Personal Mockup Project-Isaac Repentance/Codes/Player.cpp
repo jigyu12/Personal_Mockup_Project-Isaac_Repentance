@@ -30,6 +30,9 @@ void Player::Enter()
 	moveDirection = { 0.f, 0.f };
 	attackDirection = { 0.f, 0.f };
 
+	attackDelay = 1.f;
+	attackAccumTime = attackDelay;
+
 	animatorBody.Init();
 	animatorHead.Init();
 	
@@ -132,44 +135,54 @@ void Player::Update(float deltaTime)
 	}
 	
 	{
+		attackAccumTime += deltaTime;
+
 		if (attackDirection.x != 0.f || attackDirection.y != 0.f)
 		{
-			auto min = std::min_element(headAniClipInfos.begin(), headAniClipInfos.end(),
-				[this](const HeadAniClipInfo& lhs, const HeadAniClipInfo& rhs)
+			if (attackAccumTime >= attackDelay)
+			{
+				attackAccumTime = 0.f;
+
+				auto min = std::min_element(headAniClipInfos.begin(), headAniClipInfos.end(),
+					[this](const HeadAniClipInfo& lhs, const HeadAniClipInfo& rhs)
+					{
+						float d1 = Utils::Distance(attackDirection, lhs.dirVector);
+						float d2 = Utils::Distance(attackDirection, rhs.dirVector);
+
+						return d1 < d2;
+					}
+				);
+				currentHeadAniClipInfo = std::make_shared<HeadAniClipInfo>(*min);
+
+				if (currentHeadAniClipInfo->flipX)
 				{
-					float d1 = Utils::Distance(attackDirection, lhs.dirVector);
-					float d2 = Utils::Distance(attackDirection, rhs.dirVector);
-
-					return d1 < d2;
+					headSpritePtr->setScale({ std::abs(scale.x) * -1.f, scale.y * 1.f });
 				}
-			);
-			currentHeadAniClipInfo = std::make_shared<HeadAniClipInfo>(*min);
+				else
+				{
+					headSpritePtr->setScale({ std::abs(scale.x) * 1.f, scale.y * 1.f });
+				}
 
-			if (currentHeadAniClipInfo->flipX)
-			{
-				headSpritePtr->setScale({ std::abs(scale.x) * -1.f, scale.y * 1.f });
-			}
-			else
-			{
-				headSpritePtr->setScale({ std::abs(scale.x) * 1.f, scale.y * 1.f });
-			}
+				const auto& headClipId = currentHeadAniClipInfo->attack;
 
-			const auto& headClipId = (attackDirection.x != 0.f || attackDirection.y != 0.f) ? currentHeadAniClipInfo->attack : currentHeadAniClipInfo->idle;
-
-			if (animatorHead.GetCurrentClipId() != headClipId)
-			{
-				animatorHead.Play(headAniClipMap[headClipId], false);
+				if (animatorHead.GetCurrentClipId() != headClipId)
+				{
+					animatorHead.Play(headAniClipMap[headClipId]);
+				}
+				else
+				{
+					animatorHead.PushPlayQueue(headAniClipMap[headClipId]);
+				}
 			}
 		}
 		else
 		{
 			if (animatorHead.GetCurrentClipId() != L"IsaacHeadMoveFront")
 			{
-				animatorHead.Play(headAniClipMap[L"IsaacHeadMoveFront"] ,false);
+				animatorHead.PushPlayQueue(headAniClipMap[L"IsaacHeadMoveFront"]);
 				currentHeadAniClipInfo = std::make_shared<HeadAniClipInfo>(headAniClipInfos[0]);
 			}
 		}
-		
 	}
 	
 	std::dynamic_pointer_cast<HitBoxCircle>(hitbox)->UpdateHitBox(*spritePtr);

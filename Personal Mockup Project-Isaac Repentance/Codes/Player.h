@@ -37,6 +37,9 @@ protected:
 	sf::Vector2f attackDirection;
 	float speed;
 
+	float attackAccumTime;
+	float attackDelay;
+
 	Animator animatorBody;
 	Animator animatorHead;
 
