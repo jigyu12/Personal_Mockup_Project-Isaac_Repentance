@@ -57,7 +57,7 @@ void Room::Enter()
     sprite4Ptr->setPosition({ 0.f, 0.f });
     sprite4Ptr->setScale({ ((float)GAME_MGR.GetWindowWidth() / sprite4Ptr->getGlobalBounds().width) / 2, -((float)GAME_MGR.GetWindowHeight() / sprite4Ptr->getGlobalBounds().height) / 2 });
 
-    movableBoundRect = { (-(float)GAME_MGR.GetWindowWidth() / 2) * (7.f / 9.f) , (-(float)GAME_MGR.GetWindowHeight() / 2) * (7.f / 9.f) , (float)GAME_MGR.GetWindowWidth() * (7.f / 9.f), (float)GAME_MGR.GetWindowHeight() * (7.f / 9.f) };
+    movableBoundRect = { (-(float)GAME_MGR.GetWindowWidth() / 2) * (7.f / 9.f) + spritePtr->getPosition().x , (-(float)GAME_MGR.GetWindowHeight() / 2) * (2.f / 3.f) + spritePtr->getPosition().y , (float)GAME_MGR.GetWindowWidth() * (7.f / 9.f), (float)GAME_MGR.GetWindowHeight() * (2.f / 3.f)};
 }
 
 void Room::Update(float deltaTime)
@@ -71,19 +71,19 @@ void Room::FixedUpdate(float deltaTime)
     auto pHitBoxrect = std::dynamic_pointer_cast<HitBoxCircle>(player->GetHitBox())->GetHitBoxGlobalRect();
     if (pHitBoxrect.left < movableBoundRect.left)
     {
-        player->SetPosition({ movableBoundRect.left + pHitBoxrect.width / 2.f , player->GetPosition().y});
+        player->SetPosition({ movableBoundRect.left + pHitBoxrect.width / 2.f, player->GetPosition().y});
     }
     if (pHitBoxrect.top < movableBoundRect.top)
     {
         player->SetPosition({ player->GetPosition().x , movableBoundRect.top + pHitBoxrect.height / 2.f });
     }
-    if (pHitBoxrect.left < movableBoundRect.left)
+    if (pHitBoxrect.left + pHitBoxrect.width > movableBoundRect.left + movableBoundRect.width)
     {
-        player->SetPosition({ movableBoundRect.left + pHitBoxrect.width / 2.f , player->GetPosition().y });
+        player->SetPosition({ movableBoundRect.left + movableBoundRect.width - pHitBoxrect.width / 2.f , player->GetPosition().y });
     }
-    if (pHitBoxrect.left < movableBoundRect.left)
+    if (pHitBoxrect.top + pHitBoxrect.height > movableBoundRect.top + movableBoundRect.height)
     {
-        player->SetPosition({ movableBoundRect.left + pHitBoxrect.width / 2.f , player->GetPosition().y });
+        player->SetPosition({ player->GetPosition().x ,movableBoundRect.top + movableBoundRect.height -pHitBoxrect.height / 2.f });
     }
 }
 

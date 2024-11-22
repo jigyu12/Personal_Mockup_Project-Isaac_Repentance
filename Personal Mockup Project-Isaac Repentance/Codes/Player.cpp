@@ -2,7 +2,7 @@
 #include "Player.h"
 
 Player::Player(const std::wstring& name)
-	: SpriteGameObject(name), moveDirection({0.f,0.f}), attackDirection({0.f, 0.f}), speed(400.f), headTexturePtr(std::make_shared<sf::Texture>()), headSpritePtr(std::make_shared<sf::Sprite>()), currentBodyAniClipInfo(nullptr), currentHeadAniClipInfo(nullptr)
+	: SpriteGameObject(name), moveDirection({0.f,0.f}), attackDirection({0.f, 0.f}), speed(500.f), headTexturePtr(std::make_shared<sf::Texture>()), headSpritePtr(std::make_shared<sf::Sprite>()), currentBodyAniClipInfo(nullptr), currentHeadAniClipInfo(nullptr)
 {
 }
 

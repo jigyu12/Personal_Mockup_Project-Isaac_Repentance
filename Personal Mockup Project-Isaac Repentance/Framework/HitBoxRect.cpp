@@ -8,7 +8,7 @@ HitBoxRect::HitBoxRect(const sf::Vector2f& rectSize)
 
 	hitBox.setSize(rectSize);
 
-	Utils::SetOrigin(hitBox, Origins::MC);
+	hitBox.setOrigin({ hitBox.getSize().x / 2.f, hitBox.getSize().y / 2.f });
 }
 
 void HitBoxRect::Draw(sf::RenderWindow& window)

@@ -8,7 +8,7 @@ HitBoxCircle::HitBoxCircle(const float radius)
 
 	hitBox.setRadius(radius);
 
-	Utils::SetOrigin(hitBox, Origins::MC);
+	hitBox.setOrigin({radius, radius});
 }
 
 void HitBoxCircle::Draw(sf::RenderWindow& window)
