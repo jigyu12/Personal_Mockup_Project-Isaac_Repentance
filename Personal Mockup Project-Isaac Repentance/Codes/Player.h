@@ -2,6 +2,8 @@
 
 #include "../Framework/SpriteGameObject.h"
 
+class Bullet;
+
 class Player : public SpriteGameObject
 {
 public:
@@ -26,6 +28,14 @@ public:
 	void SetRotation(float angle) override;
 	void SetScale(const sf::Vector2f& scale) override;
 
+	sf::Vector2f GetAttackDirection() const { return attackDirection; }
+	sf::Vector2f GetMoveDirection() const { return moveDirection; }
+	sf::Vector2f GetAttackDirSpeed() const { return attackDirection * speed; }
+	sf::Vector2f GetMoveDirSpeed() const { return moveDirection * speed; }
+	ObjectPool<Bullet>& GetBulletPool() { return bulletPool; }
+
+	void Attack();
+
 protected:
 	std::vector<std::wstring> playerBodyAnimationPath;
 	std::vector<std::wstring> playerHeadAnimationPath;
@@ -39,6 +49,8 @@ protected:
 
 	float attackAccumTime;
 	float attackDelay;
+
+	ObjectPool<Bullet> bulletPool;
 
 	Animator animatorBody;
 	Animator animatorHead;
@@ -59,11 +71,11 @@ protected:
 		sf::Vector2f dirVector;
 	};
 
-	std::map<std::wstring, std::shared_ptr<AnimationClip>> bodyAniClipMap;
+	std::unordered_map<std::wstring, std::shared_ptr<AnimationClip>> bodyAniClipMap;
 	std::vector<BodyAniClipInfo> bodyAniClipInfos;
 	std::shared_ptr<BodyAniClipInfo> currentBodyAniClipInfo;
 
-	std::map<std::wstring, std::shared_ptr<AnimationClip>> headAniClipMap;
+	std::unordered_map<std::wstring, std::shared_ptr<AnimationClip>> headAniClipMap;
 	std::vector<HeadAniClipInfo> headAniClipInfos;
 	std::shared_ptr<HeadAniClipInfo> currentHeadAniClipInfo;
 };

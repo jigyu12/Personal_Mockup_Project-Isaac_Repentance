@@ -1,5 +1,7 @@
 #include "../Framework/pch.h"
 #include "Room.h"
+#include "Player.h"
+#include "Bullet.h"
 
 Room::Room(const std::wstring& name)
     : SpriteGameObject(name), roomTextureCsvPath(L"Invaild Path"), sprite2Ptr(std::make_shared<sf::Sprite>()), sprite3Ptr(std::make_shared<sf::Sprite>()), sprite4Ptr(std::make_shared<sf::Sprite>()), spriteControlTexturePtr(std::make_shared<sf::Texture>()), spriteControlPtr(std::make_shared<sf::Sprite>()), movableBoundRect({0.f,0.f,0.f,0.f}), isDrawspriteControl(false)
@@ -84,6 +86,18 @@ void Room::FixedUpdate(float deltaTime)
     if (pHitBoxrect.top + pHitBoxrect.height > movableBoundRect.top + movableBoundRect.height)
     {
         player->SetPosition({ player->GetPosition().x ,movableBoundRect.top + movableBoundRect.height -pHitBoxrect.height / 2.f });
+    }
+
+    auto bulletList = SCENE_MGR.GetCurrentScene()->FindAllGoByName(L"Bullet");
+    for (auto& bullet : *bulletList)
+    {
+        auto bHitBoxrect = std::dynamic_pointer_cast<HitBoxCircle>(std::dynamic_pointer_cast<Bullet>(bullet)->GetHitBox())->GetHitBoxGlobalRect();
+
+        if (bHitBoxrect.left < movableBoundRect.left || bHitBoxrect.top < movableBoundRect.top || bHitBoxrect.left + pHitBoxrect.width > movableBoundRect.left + movableBoundRect.width || bHitBoxrect.top + pHitBoxrect.height > movableBoundRect.top + movableBoundRect.height)
+        {
+            std::dynamic_pointer_cast<Bullet>(bullet)->SetIdleAccumTimeMax();
+            std::dynamic_pointer_cast<Bullet>(bullet)->SetAccelSpeed(0.f);
+        }
     }
 }
 

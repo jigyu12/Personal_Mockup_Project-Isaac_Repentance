@@ -128,6 +128,9 @@
     <ClCompile Include="Codes\Player.cpp">
       <Filter>소스 파일\02. GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="Codes\Bullet.cpp">
+      <Filter>소스 파일\02. GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Game.h">
@@ -218,6 +221,9 @@
       <Filter>소스 파일\02. GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="Codes\Player.h">
+      <Filter>소스 파일\02. GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Codes\Bullet.h">
       <Filter>소스 파일\02. GameObjects</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,7 @@
 #include "../Framework/pch.h"
 #include "Player.h"
+#include "Bullet.h"
+#include "../Framework/SceneDev2.h"
 
 Player::Player(const std::wstring& name)
 	: SpriteGameObject(name), moveDirection({0.f,0.f}), attackDirection({0.f, 0.f}), speed(500.f), headTexturePtr(std::make_shared<sf::Texture>()), headSpritePtr(std::make_shared<sf::Sprite>()), currentBodyAniClipInfo(nullptr), currentHeadAniClipInfo(nullptr)
@@ -141,6 +143,8 @@ void Player::Update(float deltaTime)
 		{
 			if (attackAccumTime >= attackDelay)
 			{
+				Attack();
+
 				attackAccumTime = 0.f;
 
 				auto min = std::min_element(headAniClipInfos.begin(), headAniClipInfos.end(),
@@ -184,7 +188,7 @@ void Player::Update(float deltaTime)
 			}
 		}
 	}
-	
+
 	std::dynamic_pointer_cast<HitBoxCircle>(hitbox)->UpdateHitBox(*spritePtr);
 }
 
@@ -206,10 +210,12 @@ void Player::PostDraw()
 
 void Player::Exit()
 {
+	bulletPool.ExitAllUnUsedObject();
 }
 
 void Player::Release()
 {
+	bulletPool.ReleaseAllUnUsedObject();
 }
 
 void Player::SetPosition(const sf::Vector2f& position)
@@ -248,4 +254,9 @@ void Player::SetScale(const sf::Vector2f& scale)
 {
 	SpriteGameObject::SetScale(scale);
 	headSpritePtr->setScale(scale);
+}
+
+void Player::Attack()
+{
+	bulletPool.Take(SCENE_MGR.GetCurrentScene()->GetAddGameObjects());
 }
