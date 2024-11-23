@@ -11,6 +11,9 @@ public:
 
 	sf::CircleShape GetHitBox() const { return hitBox; }
 	sf::FloatRect GetHitBoxGlobalRect() const { return hitBox.getGlobalBounds(); }
+	float GetRadius() const { return hitBox.getRadius(); }
+
+	void SetRadius(float r) { hitBox.setRadius(r); }
 
 protected:
 	sf::CircleShape hitBox;
