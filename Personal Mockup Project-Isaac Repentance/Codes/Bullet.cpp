@@ -31,6 +31,8 @@ void Bullet::Enter()
 	
 	accelSpeed = 2.f;
 
+	damage = 10;
+
 	if (ABS(player->GetAttackDirection().x - player->GetMoveDirection().x) < EPSILON && ABS(player->GetAttackDirection().y - player->GetMoveDirection().y) < EPSILON)
 	{
 		speed = { player->GetMoveDirSpeed().x * 0.3f + player->GetAttackDirSpeed().x, player->GetMoveDirSpeed().y * 0.3f + player->GetAttackDirSpeed().y };
@@ -87,6 +89,8 @@ void Bullet::Update(float deltaTime)
 
 		if (idleAccumTime < idleDelay)
 			return;
+
+		std::dynamic_pointer_cast<HitBoxCircle>(hitbox)->SetRadius(0.f);
 
 		auto min = std::min_element(bulletAniClipInfos.begin(), bulletAniClipInfos.end(),
 			[this](const BulletAniClipInfo& lhs, const BulletAniClipInfo& rhs)

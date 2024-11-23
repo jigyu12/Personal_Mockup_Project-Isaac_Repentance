@@ -18,12 +18,33 @@ void SceneDev2::Init()
 
 		AddGo(player);
 	}
+	{
+		std::shared_ptr<Fly> fly1 = std::make_shared<Fly>();
+		fly1->SetPosition({ -300.f, -300.f });
+
+		AddGo(fly1);
+
+		std::shared_ptr<Fly> fly2 = std::make_shared<Fly>();
+		fly2->SetPosition({ 300.f, -300.f });
+
+		AddGo(fly2);
+
+		std::shared_ptr<Fly> fly3 = std::make_shared<Fly>();
+		fly3->SetPosition({ -300.f, 300.f });
+
+		AddGo(fly3);
+
+		std::shared_ptr<Fly> fly4 = std::make_shared<Fly>();
+		fly4->SetPosition({ 300.f, 300.f });
+
+		AddGo(fly4);
+	}
 	Scene::Init();
 }
 
 void SceneDev2::Enter()
 {
-	GAME_MGR.GetWindow().setMouseCursorVisible(true);
+	GAME_MGR.GetWindow().setMouseCursorVisible(false);
 
 	sf::Vector2f windowSize = { (float)GAME_MGR.GetWindowWidth(), (float)GAME_MGR.GetWindowHeight() };
 

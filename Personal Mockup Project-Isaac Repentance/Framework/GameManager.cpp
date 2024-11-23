@@ -2,8 +2,6 @@
 
 void GameManager::Init(const std::wstring& windowName)
 {
-	//window.create(sf::VideoMode::getDesktopMode(), windowName, sf::Style::Fullscreen);
-	// 풀 스크린 전 디버깅 용 임시 창 사이즈
 	window.create(sf::VideoMode(1980, 1080), windowName);
 	windowWidth = window.getSize().x;
 	windowHeight = window.getSize().y;

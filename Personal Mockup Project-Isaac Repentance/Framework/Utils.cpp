@@ -112,7 +112,7 @@ bool Utils::CheckCollision(const std::shared_ptr<HitBox> hitBox1, const std::sha
             float distance = Distance(cirCenter1, cirCenter2);
             float radiusSum = circle1->GetHitBox().getRadius() + circle2->GetHitBox().getRadius();
 
-            return distance < radiusSum;
+            return distance < radiusSum * 3;
         }
     }
 

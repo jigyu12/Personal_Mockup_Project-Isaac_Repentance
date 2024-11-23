@@ -22,6 +22,9 @@
     <ClCompile Include="Codes\Bullet.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">../Framework/pch.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="Codes\Fly.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">../Framework/pch.h</PrecompiledHeaderFile>
+    </ClCompile>
     <ClCompile Include="Framework\AnimationClip.cpp" />
     <ClCompile Include="Framework\Animator.cpp" />
     <ClCompile Include="Framework\FileManager.cpp" />
@@ -54,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Codes\Bullet.h" />
+    <ClInclude Include="Codes\Fly.h" />
     <ClInclude Include="Framework\AnimationClip.h" />
     <ClInclude Include="Framework\Animator.h" />
     <ClInclude Include="Framework\FileManager.h" />
