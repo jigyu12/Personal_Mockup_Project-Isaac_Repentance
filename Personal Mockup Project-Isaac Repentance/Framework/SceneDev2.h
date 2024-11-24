@@ -3,6 +3,7 @@
 #include "../Codes/Room.h"
 #include "../Codes/Player.h"
 #include "../Codes/Fly.h"
+#include "../Codes/StageName.h"
 
 class SceneDev2 : public Scene
 {
@@ -24,4 +25,7 @@ public:
 
 protected:
 	std::vector<std::shared_ptr<Room>> rooms;
+
+	float bgmintro = 0.f;
+	float bgmintroDelay = 14.f;
 };

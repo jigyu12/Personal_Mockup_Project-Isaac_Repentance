@@ -59,6 +59,8 @@ void Fly::Enter()
 	SetOrigin(Origins::MC);
 	//SetPosition({0.f, 0.f});
 
+	SOUND_MGR.PlaySfx(L"Music/insect swarm.wav", true);
+
 	hitbox = std::make_shared<HitBoxCircle>(spritePtr->getLocalBounds().width / 4);
 }
 
@@ -99,6 +101,16 @@ void Fly::Update(float deltaTime)
 		{
 			isDead = true;
 			SetPosition({ position.x - 64.f, position.y - 64.f });
+			auto list = SOUND_MGR.GetPlayingSfxs();
+			for (auto& i : list)
+			{
+				if (i->getLoop())
+				{
+					i->stop();
+					break;
+				}
+			}
+			SOUND_MGR.PlaySfx(L"Music/meaty deaths 2.wav");
 		}	
 
 		const auto& flyClipId = currenFlyAniClipInfo->dead;

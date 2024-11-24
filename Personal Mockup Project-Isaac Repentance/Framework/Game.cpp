@@ -12,6 +12,9 @@ void Game::Init(const std::wstring& windowName)
 	SOUND_MGR.Init();
 
 	SCENE_MGR.Init();
+
+	SOUND_MGR.SetBgmVolume(30.f);
+	SOUND_MGR.SetSfxVolume(10.f);
 }
 
 void Game::TotalUpdate()
@@ -27,9 +30,6 @@ void Game::TotalUpdate()
 		{
 			INPUT_MGR.UpdateEvent(event);
 		}
-
-		if (INPUT_MGR.GetKeyDown(sf::Keyboard::Space))
-			GAME_MGR.GetWindow().close();
 
 		if (INPUT_MGR.GetKeyDown(sf::Keyboard::F11))
 		{

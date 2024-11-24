@@ -25,6 +25,8 @@ public:
 
 	void PlaySfx(const std::wstring& path, const bool loop = false);
 
+	std::list<std::shared_ptr<sf::Sound>>& GetPlayingSfxs() { return playingSfxs; }
+
 private:
 	std::shared_ptr<sf::Sound> bgm;
 	std::wstring bgmPath;

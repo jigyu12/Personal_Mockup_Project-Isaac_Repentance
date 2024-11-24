@@ -5,6 +5,8 @@ void SoundManager::Init(int totalChannels)
 	playingSfxs.clear();
 	waitingSfxs.clear();
 
+	bgm = std::make_shared<sf::Sound>();
+
 	std::shared_ptr<json> loadVolumeInfoPtr = FILE_MGR.LoadByJson(volumeFilePath);
 	if (loadVolumeInfoPtr)
 	{

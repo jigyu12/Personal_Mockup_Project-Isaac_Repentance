@@ -134,6 +134,15 @@
     <ClCompile Include="Codes\Fly.cpp">
       <Filter>소스 파일\02. GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="Codes\MainTitle.cpp">
+      <Filter>소스 파일\02. GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Codes\SelectMode.cpp">
+      <Filter>소스 파일\02. GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Codes\StageName.cpp">
+      <Filter>소스 파일\02. GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Game.h">
@@ -230,6 +239,15 @@
       <Filter>소스 파일\02. GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="Codes\Fly.h">
+      <Filter>소스 파일\02. GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Codes\MainTitle.h">
+      <Filter>소스 파일\02. GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Codes\SelectMode.h">
+      <Filter>소스 파일\02. GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Codes\StageName.h">
       <Filter>소스 파일\02. GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
