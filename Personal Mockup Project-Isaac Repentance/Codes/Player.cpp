@@ -258,5 +258,6 @@ void Player::SetScale(const sf::Vector2f& scale)
 
 void Player::Attack()
 {
+	SOUND_MGR.PlaySfx(L"Music/tear fire 4.wav");
 	bulletPool.Take(SCENE_MGR.GetCurrentScene()->GetAddGameObjects());
 }

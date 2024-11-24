@@ -8,7 +8,7 @@
 /// </summary>
 void SceneManager::Init()
 {
-	startSceneId = SceneIds::SceneDev2;
+	startSceneId = SceneIds::SceneDev1;
 	nextSceneId = SceneIds::None;
 
 	scenes.push_back(std::make_shared<SceneDev1>());

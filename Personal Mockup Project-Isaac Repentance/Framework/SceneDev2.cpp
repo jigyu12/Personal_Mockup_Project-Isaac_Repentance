@@ -39,6 +39,11 @@ void SceneDev2::Init()
 
 		AddGo(fly4);
 	}
+	{
+		std::shared_ptr<StageName> stageName = std::make_shared<StageName>();
+
+		AddGo(stageName);
+	}
 	Scene::Init();
 }
 
@@ -56,11 +61,25 @@ void SceneDev2::Enter()
 
 	Scene::Enter();
 
+	SOUND_MGR.PlayBgm(L"Music/diptera sonata intro.ogg");
+
 	rooms[0]->SetIsDrawspriteControl(true);
+
+	SOUND_MGR.SetSfxVolume(10.f);
 }
 
 void SceneDev2::Update(float deltaTime)
 {
+	bgmintro += deltaTime;
+	if (bgmintro >= bgmintroDelay)
+	{
+		SOUND_MGR.PlayBgm(L"Music/diptera sonata(basement).ogg");
+	}
+
+	if (INPUT_MGR.GetKeyDown(sf::Keyboard::Escape))
+	{
+		GAME_MGR.GetWindow().close();
+	}
 	Scene::Update(deltaTime);
 }
 
